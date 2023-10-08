@@ -2,11 +2,11 @@ body{
     background-color: rgb(60, 60, 60);
     padding:0px;
     padding-bottom: 10px;
+    font-family:'Montserrat', sans-serif;
     margin: 0px;
 }
 
 .home-container{
-    font-family:'Montserrat', sans-serif;
     color: rgb(200, 200, 200);
     font-size:  20px;
     display: grid;
@@ -16,7 +16,7 @@ body{
 .fight-grid{
     padding: 10px;
     display: grid;
-    grid-template-columns: 400px 400px 400px 400px;
+    grid-template-columns: repeat(auto-fit, 330px);
 }
 
 header{
@@ -33,26 +33,27 @@ nav{
     top: 70px;
     width: 100%;
     background-color: rgb(40, 40, 40);
-    display: flex;
-    flex-direction: row;
     border-radius: 2px;
     padding: 10px;
     display: grid;
-    grid-template-columns: 100px 100px 1fr 190px;
+    grid-template-columns: 100px 100px 1fr 135px;
 }
 
 .nav-button{
-    background-color: gray;
+    font-size: 16px;
+    background-color: rgb(100, 100, 100);
     color: rgb(200,200,200);
-    font-weight: 300;
-    border-radius: 2px;
+    border: none;
+    border-radius: 4px;
     padding: 5px 10px;
     margin: 2px 10px;
     cursor: pointer;
 }
 
 #login-button{
-    margin-right:20px;
+    /* margin-right:20px; */
+    display: flex;
+    justify-content: flex-end; 
 }
 
 main{
@@ -72,13 +73,31 @@ footer{
 
 .fight-card{
     border: rgb(200,200,200) 1px solid;
+    border-radius: 4px;
     margin: 5px;
-    padding: 5px;
+    padding: 10px;
     height: 250px;
-    cursor: pointer;
+    width: 300px;
+    text-align: center;
 }
 
-.fights-title{
-    width: 100%;
-    border-bottom: rgb(200, 200, 200) 1px solid
+.temp-img{
+    border: rgb(200,200,200) 1px solid;
+    height: 150px;
+}
+
+.join-fight-button{
+    border: none;
+    border-radius: 4px;
+    color: rgb(200,200,200);
+    background-color: rgb(90,30,130);
+    font-size: 20px;
+    padding: 5px 15px;
+    margin-top: 15px;
+}
+
+#fight-name{
+    font-size: 24px;
+    font-weight: 300;
+    margin: 5px;
 }
