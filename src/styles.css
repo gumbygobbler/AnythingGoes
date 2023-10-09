@@ -1,3 +1,4 @@
+/* Website Wide Styles */
 body{
     background-color: rgb(60, 60, 60);
     padding:0px;
@@ -6,17 +7,11 @@ body{
     margin: 0px;
 }
 
-.home-container{
+.container{
     color: rgb(200, 200, 200);
     font-size:  20px;
     display: grid;
     grid-template-rows: 1fr 20px;
-}
-
-.fight-grid{
-    padding: 10px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 330px);
 }
 
 header{
@@ -36,10 +31,10 @@ nav{
     border-radius: 2px;
     padding: 10px;
     display: grid;
-    grid-template-columns: 100px 100px 1fr 135px;
+    grid-template-columns: 100px 100px 1fr 135px 15px;
 }
 
-.nav-button{
+.general-button{
     font-size: 16px;
     background-color: rgb(100, 100, 100);
     color: rgb(200,200,200);
@@ -71,6 +66,13 @@ footer{
     margin-bottom:1px;
 }
 
+.fight-grid{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 330px);
+}
+
+/* Homepage Styles */
 .fight-card{
     border: rgb(200,200,200) 1px solid;
     border-radius: 4px;
@@ -96,8 +98,47 @@ footer{
     margin-top: 15px;
 }
 
+.add-card{
+    border: rgb(200,200,200) 1px solid;
+    border-radius: 4px;
+    text-decoration: none;
+    color: rgb(200, 200, 200);
+    margin: 5px;
+    padding: 10px;
+    height: 200px;
+    width: 300px;
+    padding-top: 60px;
+    text-align: center;
+    font-size: 100px;
+    font-weight: 300;
+    cursor: pointer;    
+}
+
 #fight-name{
     font-size: 24px;
     font-weight: 300;
     margin: 5px;
+}
+
+/* Add Fight Page Styles */
+.add-form{
+    text-align: center;
+    font-weight: 300;
+    padding-top: 15px;
+}
+
+.add-fight-input{
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    background-color: rgb(235, 235, 235);
+    color: rgb(40, 40, 40);
+    height: 25px;
+}
+
+#add-fight-title{
+    font-size: 30px;
+    text-decoration: underline;
 }
