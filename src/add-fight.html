@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      Add a Fight
+    </title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css"/>
+
+    <!-- Monsterrat Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class='container'>
+      <header class="home-title">
+        Anything Goes Logo
+      </header>
+      <nav>
+        <a href="home.html">
+          <button class="general-button">Home</button>
+        </a>
+        <button class="general-button">About</button>
+        <br>
+        <button class="general-button"><span id="login-button">Login/Signup</span></button>        
+      </nav>
+      <main class="add-form">
+        <div id="add-fight-title">Add a New Fight</div>
+        <br>
+        <div>Fight Name</div>
+        <input type="text" class="add-fight-input" id="fight-name-input" placeholder="Enter Name">
+
+        <div>Fighter 1 Entry</div>
+        <input type="text" class="add-fight-input" id="fighter-1-name-input" placeholder="Enter Name">
+
+        <div>Fighter 2 Entry</div>
+        <input type="text" class="add-fight-input" id="fighter-2-name-input" placeholder="Enter Name">
+        <br>
+        <input class="general-button" type="submit">
+      </main>
+      <footer>
+        <p>AnythingGoes App &#183 COMPE561</p>
+      </footer>
+    </div>
+    <script src="scripts.js"></script>
+  </body>
+</html>

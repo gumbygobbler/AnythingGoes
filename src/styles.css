@@ -1,0 +1,144 @@
+/* Website Wide Styles */
+body{
+    background-color: rgb(60, 60, 60);
+    padding:0px;
+    padding-bottom: 10px;
+    font-family:'Montserrat', sans-serif;
+    margin: 0px;
+}
+
+.container{
+    color: rgb(200, 200, 200);
+    font-size:  20px;
+    display: grid;
+    grid-template-rows: 1fr 20px;
+}
+
+header{
+    position:fixed;
+    left:0;
+    width: 100%;
+    padding: 20px 30px;
+    background-color: rgb(90, 30, 130);
+    font-size: 30px;
+}
+
+nav{
+    position:fixed;
+    top: 70px;
+    width: 100%;
+    background-color: rgb(40, 40, 40);
+    border-radius: 2px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 100px 100px 1fr 135px 15px;
+}
+
+.general-button{
+    font-size: 16px;
+    background-color: rgb(100, 100, 100);
+    color: rgb(200,200,200);
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin: 2px 10px;
+    cursor: pointer;
+}
+
+#login-button{
+    /* margin-right:20px; */
+    display: flex;
+    justify-content: flex-end; 
+}
+
+main{
+    margin: 5px 120px;
+    margin-top: 120px;
+    /* border: rgb(200,200,200) 1px solid; */
+}
+
+footer{
+    font-size: 12px;
+    font-weight: 100;
+    opacity: 25;
+    text-align:center;
+    margin-top: 10px;
+    margin-bottom:1px;
+}
+
+.fight-grid{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 330px);
+}
+
+/* Homepage Styles */
+.fight-card{
+    border: rgb(200,200,200) 1px solid;
+    border-radius: 4px;
+    margin: 5px;
+    padding: 10px;
+    height: 250px;
+    width: 300px;
+    text-align: center;
+}
+
+.temp-img{
+    border: rgb(200,200,200) 1px solid;
+    height: 150px;
+}
+
+.join-fight-button{
+    border: none;
+    border-radius: 4px;
+    color: rgb(200,200,200);
+    background-color: rgb(90,30,130);
+    font-size: 20px;
+    padding: 5px 15px;
+    margin-top: 15px;
+}
+
+.add-card{
+    border: rgb(200,200,200) 1px solid;
+    border-radius: 4px;
+    text-decoration: none;
+    color: rgb(200, 200, 200);
+    margin: 5px;
+    padding: 10px;
+    height: 200px;
+    width: 300px;
+    padding-top: 60px;
+    text-align: center;
+    font-size: 100px;
+    font-weight: 300;
+    cursor: pointer;    
+}
+
+#fight-name{
+    font-size: 24px;
+    font-weight: 300;
+    margin: 5px;
+}
+
+/* Add Fight Page Styles */
+.add-form{
+    text-align: center;
+    font-weight: 300;
+    padding-top: 15px;
+}
+
+.add-fight-input{
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    background-color: rgb(235, 235, 235);
+    color: rgb(40, 40, 40);
+    height: 25px;
+}
+
+#add-fight-title{
+    font-size: 30px;
+    text-decoration: underline;
+}
