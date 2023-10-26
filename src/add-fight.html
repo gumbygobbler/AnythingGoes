@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-      Homepage
+      Add a Fight
     </title>
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css"/>
@@ -21,36 +21,31 @@
         Anything Goes Logo
       </header>
       <nav>
-        <button class="general-button">Home</button>
+        <a href="home.html">
+          <button class="general-button">Home</button>
+        </a>
         <button class="general-button">About</button>
         <br>
         <button class="general-button"><span id="login-button">Login/Signup</span></button>        
       </nav>
-      <main class="fight-grid">
+      <main class="add-form">
+        <div id="add-fight-title">Add a New Fight</div>
+        <br>
+        <div>Fight Name</div>
+        <input type="text" class="add-fight-input" id="fight-name-input" placeholder="Enter Name">
 
-        <!-- Template for fight cards 
-          <div class="fight-card">
-          Add image link here
-          <div class = 'temp-img'></div>
-          <h6 id="fight-name">Fight Name</h6>
-          <button class="join-fight-button">Join the Fight</button> 
-        </div> -->
+        <div>Fighter 1 Entry</div>
+        <input type="text" class="add-fight-input" id="fighter-1-name-input" placeholder="Enter Name">
 
-        <div class="fight-card">
-          <div class = 'temp-img'></div>
-          <h6 id="fight-name">Fight Name</h6>
-          <button class="join-fight-button">Join the Fight</button> 
-        </div>
-        <!-- Add card -->
-        <a href="add-fight.html">
-          <div class="add-card">
-            <span id="add-card">+</span>
-          </div>
-        </a>
+        <div>Fighter 2 Entry</div>
+        <input type="text" class="add-fight-input" id="fighter-2-name-input" placeholder="Enter Name">
+        <br>
+        <input class="general-button" type="submit">
       </main>
       <footer>
-        AnythingGoes App &#183 COMPE561
+        <p>AnythingGoes App &#183 COMPE561</p>
       </footer>
-      <script src="scripts.js"></script>
     </div>
+    <script src="scripts.js"></script>
+  </body>
 </html>
