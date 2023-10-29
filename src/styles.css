@@ -45,6 +45,11 @@ nav{
     cursor: pointer;
 }
 
+.general-button:hover{
+    background-color: rgb(86, 83, 83);
+    color:white;
+}
+
 #login-button{
     /* margin-right:20px; */
     display: flex;
@@ -142,3 +147,61 @@ footer{
     font-size: 30px;
     text-decoration: underline;
 }
+
+
+.headers{
+    padding-top:15px;
+    margin-bottom:5px;
+    text-align:center;
+    font-size:30px;
+    color: rgb(61, 20, 61);
+}
+
+.logInForm{
+    padding: 10px;
+}
+
+.logInInputs label{
+    display:block;
+    font-size:20px;
+    border:none;
+    /*text-align: center;*/
+    padding-left: 10px;
+    color: rgb(200, 200, 200);
+}
+
+.logInInputs input[type="text"]{
+    padding:10px;
+    width:100%;
+    margin:10px;
+    background-color: rgb(200, 200, 200);
+}
+
+
+.signOnButton{
+    background-color: rgb(90,30,130);
+    border-radius:7px;
+    font-size:30px;
+    margin: 3% 20% 5px;
+    width:60%;
+    /* how to align buttons?*/
+}
+
+.signOnButton:hover{
+    background:rgb(121, 12, 175);
+    /* we should decide on a better color when hovering*/
+    color:rgb(0, 0, 0);
+}
+
+.forgotPassword {
+    font-size:15px;
+    border:none;
+    background-color:rgb(60, 60, 60);
+    margin: 0px 43%;
+
+}
+
+.forgotPassword:hover{
+    color:rgb(164, 12, 12);
+}
+
