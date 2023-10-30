@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="em">
+    <head>
+        <meta charse="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Login Page
+        </title>
+        <link rel="stylesheet" href="styles.css"/>
+
+        <!-- Monsterrat Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class='container'> 
+            <header class='logInTitle'>
+                Login or Sign Up
+                <!--should this be anything goes logo as well-->
+            </header>
+            <nav>
+                <button class="general-button">Home</button>
+                <button class="general-button">About</button>
+                <br>
+                <button class="general-button"><span id="login-button">Login/Signup</span></button>        
+              </nav>
+        </div>
+        <main class="logInMainScreen"> 
+            <form class="logInForm">
+                <h1 class="headers"> Returning User:</h1>
+                <div class='logInInputs'>
+                    <label> Username or Email:</label>
+    <!-- will ppl be able to log in with their email or only their username? -->
+                    <input type="text" name="username" placeholder="Enter your username">
+                </div>
+                <div class='logInInputs'>
+                    <label>Password:</label>
+                    <input type="text" name="password" placeholder="Enter your password">
+                    <input class="signOnButton" type="submit" value="Log In" name="">
+                    <input class="forgotPassword" type="url" value="Forgot Password" name=" ">
+                    <!--How to do a url?-->
+                </div>
+                <!--should i make a new page for sign up? i think it would look a little nicer-->
+                <h2 class="headers">New User:</h2>
+                <div class='logInInputs'>
+                    <label> New username:</label>
+                    <!-- will ppl be able to log in with their email or only their username? -->
+                    <input type="text" name="username">
+                </div>
+                <div class='logInInputs'>
+                    <label>New Password:</label>
+                    <input type="text" name="password">
+                    <label>Confirm Password:</label>
+                    <input type="text" name="password">
+                    <input class="signOnButton" type="submit" value="Sign Up" name=" ">
+                </div>
+            </form>
+        </main>
+    </body>
+</html>
+

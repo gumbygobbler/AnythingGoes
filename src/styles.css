@@ -142,3 +142,125 @@ footer{
     font-size: 30px;
     text-decoration: underline;
 }
+
+/*beneath this comment is the css for registration page*/
+.body-test {
+    
+    height: 600px;
+    background-color: rgb(90, 30, 130);
+    margin: 0px 20%;
+    text-align: center;
+    color: rgb(200,200,200);
+    overflow: hidden;
+    border-radius: 10px;
+    padding-bottom: 100px;
+    padding-top: 100px;
+    
+}
+
+.title-test {
+    height: 30%;
+    color: rgb(200,200,200);
+    font-size: 50px;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; 
+}
+
+.row {
+ 
+    display: flex;
+    height: 20%;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; 
+    border-top: solid;
+    border-color: rgb(180, 180, 180);
+    margin: 0% 15%;
+
+}
+
+.row form {
+    flex: 1;
+    padding: 0, 10%;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.row form:focus {
+    border: 3px solid #555;
+}
+
+.row label {
+    color: rgb(200,200,200);
+}
+
+.button2 {
+    background-color: black; /* Green */
+    border: none;
+    color: rgb(200,200,200);
+    padding: 15px 32px;
+    margin-left: 65%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+
+}
+/* Login Page CSS */
+.headers{
+    padding-top:15px;
+    margin-bottom:5px;
+    text-align:center;
+    font-size:30px;
+    color: rgb(61, 20, 61);
+}
+
+.logInForm{
+    padding: 10px;
+}
+
+.logInInputs label{
+    display:block;
+    font-size:20px;
+    border:none;
+    /*text-align: center;*/
+    padding-left: 10px;
+    color: rgb(200, 200, 200);
+}
+
+.logInInputs input[type="text"]{
+    padding:10px;
+    width:100%;
+    margin:10px;
+    background-color: rgb(200, 200, 200);
+}
+
+
+.signOnButton{
+    background-color: rgb(90,30,130);
+    border-radius:7px;
+    font-size:30px;
+    margin: 3% 20% 5px;
+    width:60%;
+    /* how to align buttons?*/
+}
+
+.signOnButton:hover{
+    background:rgb(121, 12, 175);
+    /* we should decide on a better color when hovering*/
+    color:rgb(0, 0, 0);
+}
+
+.forgotPassword {
+    font-size:15px;
+    border:none;
+    background-color:rgb(60, 60, 60);
+    margin: 0px 43%;
+
+}
+
+.forgotPassword:hover{
+    color:rgb(164, 12, 12);
+}
