@@ -143,6 +143,33 @@ footer{
     text-decoration: underline;
 }
 
+.fight-page-images {
+ 
+    display: flex;
+    height: 20%;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; 
+    border-top: solid;
+    border-color: rgb(180, 180, 180);
+    margin: 0% 15%;
+    margin-top:10%;
+
+}
+
+.blue-bar {
+    height: 30px;
+    width: 75%;
+    margin: 0 auto;
+    background-color:rgb(0, 0, 255);
+}
+.red-bar {
+    height: 30px;
+    width: 66%;
+    background-color:rgb(255, 0, 0);
+}
+
+
 /*beneath this comment is the css for registration page*/
 .body-test {
     
