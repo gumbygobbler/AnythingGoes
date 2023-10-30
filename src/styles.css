@@ -45,11 +45,6 @@ nav{
     cursor: pointer;
 }
 
-.general-button:hover{
-    background-color: rgb(86, 83, 83);
-    color:white;
-}
-
 #login-button{
     /* margin-right:20px; */
     display: flex;
@@ -148,7 +143,72 @@ footer{
     text-decoration: underline;
 }
 
+/*beneath this comment is the css for registration page*/
+.body-test {
+    
+    height: 600px;
+    background-color: rgb(90, 30, 130);
+    margin: 0px 20%;
+    text-align: center;
+    color: rgb(200,200,200);
+    overflow: hidden;
+    border-radius: 10px;
+    padding-bottom: 100px;
+    padding-top: 100px;
+    
+}
 
+.title-test {
+    height: 30%;
+    color: rgb(200,200,200);
+    font-size: 50px;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; 
+}
+
+.row {
+ 
+    display: flex;
+    height: 20%;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; 
+    border-top: solid;
+    border-color: rgb(180, 180, 180);
+    margin: 0% 15%;
+
+}
+
+.row form {
+    flex: 1;
+    padding: 0, 10%;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.row form:focus {
+    border: 3px solid #555;
+}
+
+.row label {
+    color: rgb(200,200,200);
+}
+
+.button2 {
+    background-color: black; /* Green */
+    border: none;
+    color: rgb(200,200,200);
+    padding: 15px 32px;
+    margin-left: 65%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+
+}
+/* Login Page CSS */
 .headers{
     padding-top:15px;
     margin-bottom:5px;
@@ -204,4 +264,3 @@ footer{
 .forgotPassword:hover{
     color:rgb(164, 12, 12);
 }
-
