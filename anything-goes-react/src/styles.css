@@ -15,17 +15,27 @@ body{
 }
 
 header{
-    position:fixed;
+    position:relative;
+    color: rgb(200, 200, 200);
     left:0;
+    top: 0;
     width: 100%;
-    padding: 20px 30px;
+    padding: 10px 10px 5px 10px;
+    margin: 0;
     background-color: rgb(90, 30, 130);
     font-size: 30px;
 }
 
+.home-title{
+    color: rgb(200,200,200);
+    cursor: pointer;
+    display: inline; 
+    text-decoration: none;   
+}
+
 nav{
-    position:fixed;
-    top: 70px;
+    position:relative;
+    top: 0;
     width: 100%;
     background-color: rgb(40, 40, 40);
     border-radius: 2px;
@@ -45,15 +55,18 @@ nav{
     cursor: pointer;
 }
 
-#login-button{
+.login-button{
     /* margin-right:20px; */
+    color: rgb(200,200,200);
+    text-decoration: none; 
     display: flex;
-    justify-content: flex-end; 
+    justify-content: flex-end;
 }
 
 main{
-    margin: 5px 120px;
-    margin-top: 120px;
+    position:relative;
+    margin: 5px 20px;
+    margin-top: 20px;
     /* border: rgb(200,200,200) 1px solid; */
 }
 
@@ -237,7 +250,8 @@ footer{
 }
 /* Login Page CSS */
 .headers{
-    margin-bottom:20px;
+    padding-top:15px;
+    margin-bottom:5px;
     text-align:center;
     font-size:30px;
     color: rgb(61, 20, 61);
@@ -245,7 +259,6 @@ footer{
 
 .logInForm{
     padding: 10px;
-
 }
 
 .logInInputs label{
@@ -255,7 +268,6 @@ footer{
     /*text-align: center;*/
     padding-left: 10px;
     color: rgb(200, 200, 200);
-    
 }
 
 .logInInputs input[type="text"]{
@@ -263,7 +275,6 @@ footer{
     width:100%;
     margin:10px;
     background-color: rgb(200, 200, 200);
-    
 }
 
 
@@ -274,7 +285,6 @@ footer{
     margin: 3% 20% 5px;
     width:60%;
     /* how to align buttons?*/
-    cursor: pointer;
 }
 
 .signOnButton:hover{
@@ -284,48 +294,13 @@ footer{
 }
 
 .forgotPassword {
-    font-size:18px;
+    font-size:15px;
     border:none;
     background-color:rgb(60, 60, 60);
-    /*margin-left: 34%;*/
-    cursor: pointer;
-    padding:2% 41%;
+    margin: 0px 43%;
 
 }
 
 .forgotPassword:hover{
     color:rgb(164, 12, 12);
 }
-<<<<<<< HEAD
-
-.signUpLink{
-    font-size:18px;
-    border:none;
-    background-color:rgb(60, 60, 60);
-    /*margin-left: 29%;*/
-    padding:0px 38%;
-    cursor: pointer;
-
-}
-
-.signUpLink:hover{
-    color:rgb(164, 12, 12);
-}
-
-.backButton{
-    font-size:18px;
-    border:none;
-    background-color:rgb(60, 60, 60);
-    color: rgb(226, 176, 226);
-    margin: 0px 0px;
-    cursor: pointer;
-    background-image:url('images/backButtonSymbol.jpg');
-
-}
-
-.backButton:hover{
-    color:rgb(164, 12, 12);
-}
-
-=======
->>>>>>> 09e6a89684db4ab2bd6a57830fde0c46d7ea661d
