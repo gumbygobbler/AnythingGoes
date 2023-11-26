@@ -1,16 +1,6 @@
 import React from "react";
+import ButtonLink from './ButtonLink';
 import "../styles.css";
-import { Link } from "react-router-dom";
-
-const ButtonLink = ({ to, classes, children }) => {
-  return (
-    <Link style={{ textDecoration: "none" }} to={to}>
-      <button type="button" className={classes}>
-        {children}
-      </button>
-    </Link>
-  );
-};
 
 const NavBar = () => {
   return (

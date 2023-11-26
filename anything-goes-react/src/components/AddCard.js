@@ -1,5 +1,7 @@
 import React from "react";
 import './components.css';
+import { Link } from "react-router-dom";
+
 
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -16,9 +18,11 @@ const AddCard = () => {
         <Card.Body>
           <Card.Title className="fight-item">Add Fight</Card.Title>
           <div className="d-flex justify-content-center">
-            <Button type="button" variant="outline-light">
-              Add a New Fight
-            </Button>
+            <Link to='/addfight'>
+              <Button type="button" variant="outline-light">
+                Add a New Fight
+              </Button>
+            </Link>
           </div>
         </Card.Body>
       </Card>

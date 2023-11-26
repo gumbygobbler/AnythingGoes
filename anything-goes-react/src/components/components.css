@@ -22,8 +22,8 @@
   
   .card-image {
     width: 100%;
-    height: 150px;
-    padding-bottom: 100%; /* Create a square aspect ratio */
+    object-fit: scale-down;
+    padding-bottom: 20px; /* Create a square aspect ratio */
   }
 
   .fight-grid-container {
