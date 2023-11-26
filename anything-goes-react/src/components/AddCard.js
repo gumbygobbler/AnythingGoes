@@ -7,19 +7,17 @@ import Card from 'react-bootstrap/Card';
 // import Card.Img from "react-bootstrap/esm/CardImg";
 
 //Props needed for a full card: Image, Name, Text
-const defaultImage = './no-img.png';
-
-const FightCard = ({ image, name, text, link }) => {
+const AddCard = () => {
   return (
     <div className="square-card">
       <Card style={{backgroundColor: 'rgb(40,40,40)', color:'rgb(200,200,200)'}}>
-        {image ?  <Card.Img className="card-image" variant="top" src={image} /> :  <Card.Img className="card-image" variant="top" src={defaultImage} />}
+        {/* Add a plus image for adding a card */}
+        <Card.Img />
         <Card.Body>
-          <Card.Title className="fight-item">{name}</Card.Title>
-          <Card.Text className="fight-item fight-text">{text}</Card.Text>
+          <Card.Title className="fight-item">Add Fight</Card.Title>
           <div className="d-flex justify-content-center">
-            <Button type="button" src={link} variant="outline-light">
-              View Fight
+            <Button type="button" variant="outline-light">
+              Add a New Fight
             </Button>
           </div>
         </Card.Body>
@@ -28,4 +26,4 @@ const FightCard = ({ image, name, text, link }) => {
   );
 };
 
-export default FightCard;
+export default AddCard;
