@@ -15,17 +15,27 @@ body{
 }
 
 header{
-    position:fixed;
+    position:relative;
+    color: rgb(200, 200, 200);
     left:0;
+    top: 0;
     width: 100%;
-    padding: 20px 30px;
+    padding: 10px 10px 5px 10px;
+    margin: 0;
     background-color: rgb(90, 30, 130);
     font-size: 30px;
 }
 
+.home-title{
+    color: rgb(200,200,200);
+    cursor: pointer;
+    display: inline; 
+    text-decoration: none;   
+}
+
 nav{
-    position:fixed;
-    top: 70px;
+    position:relative;
+    top: 0;
     width: 100%;
     background-color: rgb(40, 40, 40);
     border-radius: 2px;
@@ -45,15 +55,18 @@ nav{
     cursor: pointer;
 }
 
-#login-button{
+.login-button{
     /* margin-right:20px; */
+    color: rgb(200,200,200);
+    text-decoration: none; 
     display: flex;
-    justify-content: flex-end; 
+    justify-content: flex-end;
 }
 
 main{
-    margin: 5px 120px;
-    margin-top: 120px;
+    position:relative;
+    margin: 5px 20px;
+    margin-top: 20px;
     /* border: rgb(200,200,200) 1px solid; */
 }
 
