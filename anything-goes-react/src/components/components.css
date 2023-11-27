@@ -1,0 +1,37 @@
+.fight-item{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.fight-text{
+    font-size: 14px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 600px)); /* Adjust the column width as needed */
+    gap: 20px; /* Adjust the gap (spacing between items) as needed */
+    justify-content: center;
+  }
+
+  .square-card {
+    width: 100%;
+    max-width: 250px; /* Adjust the max-width as needed */
+  }
+  
+  .card-image {
+    width: 100%;
+    object-fit: scale-down;
+    padding-bottom: 20px; /* Create a square aspect ratio */
+  }
+
+  .fight-grid-container {
+    border-top: none !important;
+    border-bottom: none !important;
+  }
+  
+  .no-border > [class*='col-'] {
+    border-top: none !important;
+    border-bottom: none !important;
+  }

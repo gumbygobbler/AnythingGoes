@@ -1,6 +1,8 @@
-import "./styles.css";
+// import "./styles.css";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import 'bootstrap/dist/css/bootstrap.css';
 
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
@@ -17,26 +19,29 @@ import NoPage from "./pages/NoPage";
 
 function App() {
   return (
-    <div className="container">
+    
       <BrowserRouter>
         <Header />
         <NavBar />
-        <main>
-          <Routes>
-            <Route index element={<Welcome />} />
-            <Route path="/welcome" element={<Welcome />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/addfight" element={<AddFight />} />
-            <Route path="/fight" element={<Fight />} />
-            <Route path="*" element={<NoPage />} />
-          </Routes>
-        </main>
+        <div className='container'>
+          <div>
+            <Routes>
+              <Route index element={<Welcome />} />
+              <Route path="/welcome" element={<Welcome />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/addfight" element={<AddFight />} />
+              <Route path="/fight" element={<Fight />} />
+              <Route path="*" element={<NoPage />} />
+            </Routes>
+          </div>
+          <Footer />
+        </div>
       </BrowserRouter>
-      <Footer />
-    </div>
+      
+    
   );
 }
 
