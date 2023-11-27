@@ -304,3 +304,40 @@ footer{
 .forgotPassword:hover{
     color:rgb(164, 12, 12);
 }
+
+#addFight, #Welcome {
+    background-image: url("./b72134112b54864e4948865375ecbb11.gif" );
+    background-repeat: repeat-x;
+    background-position:center bottom;
+
+    padding-bottom: 5%
+}
+
+#inputBox {
+    text-align: center;
+    margin: 10%;
+    border: 5px solid;
+    border-radius: 10px;
+    padding: 10%;
+    background-color: rgb(60, 60, 60);
+
+}
+
+#inputBox #submit {
+    color: red;
+}
+
+#Welcome {
+    text-align: center;;
+    background-color: rgb(60, 60, 60);
+    margin-top:5%;
+    margin-left:10%;
+    margin-right: 10%;
+    padding:5%
+} 
+
+#Welcome p {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    font-size: 30px
+}
