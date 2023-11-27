@@ -22,6 +22,9 @@ function App() {
     
       <BrowserRouter>
         <Header />
+        <Routes>
+          
+        </Routes>
         <NavBar />
         <div className='container'>
           <div>
