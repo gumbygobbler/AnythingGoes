@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charse="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Password Reset
+        </title>
+        <link rel="stylesheet" href="styles.css"/>
+
+        <!-- Monsterrat Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class='container'> 
+            <header class='logInTitle'>
+                (logo here) Forgot Password?
+                <!--should this be anything goes logo as well-->
+            </header>
+            <nav>
+                <a href="home.html">
+                    <button class="general-button">Home</button>
+                </a>
+                <button class="general-button">About</button>
+                <br>
+                <a href="log-in.html">
+                    <button class="general-button"><span id="login-button">Login/Signup</span></button>        
+
+                </a>
+            </nav>
+        </div>
+        <main class="logInMainScreen"> 
+            <a href="log-in.html">
+                <input class="backButton" type="button" value="Back to Login" name=" ">
+            </a>
+            <form class="logInForm">
+                <h1 class="headers">Reset Password</h1>
+                <div class='logInInputs'>
+                    <label> Username or Email:</label>
+    <!-- will ppl be able to log in with their email or only their username? -->
+                    <input type="text" name="username" placeholder="Enter your username">
+                </div>
+                <div class='logInInputs'>
+                    <label>New Password:</label>
+                    <input type="text" name="password" placeholder="Enter your password">
+                    <input type="text" name="password" placeholder="Confirm your password">
+                    <input class="signOnButton" type="submit" value="Reset" name="">
+                </div>
+            </form>
+        </main>
+        <footer>
+            AnythingGoes App &#183 COMPE561
+          </footer>
+          <script src="scripts.js"></script>
+    </body>
+ 
+</html>
