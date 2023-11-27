@@ -1,0 +1,32 @@
+{
+  "fights": [
+    {
+      "id": 0,
+      "image": "",
+      "name": "Fight 0",
+      "text": "Random Text for Fight 0",
+      "link": ""
+    },
+    {
+        "id": 1,
+        "image": "",
+        "name": "Fight 1",
+        "text": "Random Text for Fight 1",
+        "link": ""
+      },
+      {
+        "id": 2,
+        "image": "",
+        "name": "Fight 2",
+        "text": "Random Text for Fight 2",
+        "link": ""
+      },
+      {
+        "id": 3,
+        "image": "",
+        "name": "Fight 3",
+        "text": "Random Text for Fight 3",
+        "link": ""
+      }
+  ]
+}

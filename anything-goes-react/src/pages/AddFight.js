@@ -1,7 +1,9 @@
 import React from "react";
 
 const AddFight = () => {
-  return <div>AddFight</div>;
+  return <main>
+    
+  </main>;
 };
 
 export default AddFight;

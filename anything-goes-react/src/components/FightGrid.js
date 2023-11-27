@@ -20,7 +20,14 @@ const FightGrid = ({ colCount, children, xs, sm, md, lg }) => {
 
       for (let colIndex = startIndex; colIndex < endIndex; colIndex++) {
         cols.push(
-          <Col key={colIndex} xs={xs} sm={sm} md={md} lg={lg} className="mb-3 no-gutters">
+          <Col
+            key={colIndex}
+            xs={xs}
+            sm={sm}
+            md={md}
+            lg={lg}
+            className="mb-3 no-gutters"
+          >
             {children[colIndex]}
           </Col>
         );
@@ -43,12 +50,11 @@ const FightGrid = ({ colCount, children, xs, sm, md, lg }) => {
           {row}
         </Container>
       ))}
-      <div className="d-flex justify-content-center" >
-         <AddCard />  
+      <div className="d-flex justify-content-center">
+        <AddCard />
       </div>
     </Container>
   );
 };
-
 
 export default FightGrid;
