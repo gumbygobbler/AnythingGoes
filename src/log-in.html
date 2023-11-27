@@ -17,11 +17,13 @@
     <body>
         <div class='container'> 
             <header class='logInTitle'>
-                Login or Sign Up
+                (logo here) Login
                 <!--should this be anything goes logo as well-->
             </header>
             <nav>
-                <button class="general-button">Home</button>
+                <a href="home.html">
+                    <button class="general-button">Home</button>
+                </a>
                 <button class="general-button">About</button>
                 <br>
                 <button class="general-button"><span id="login-button">Login/Signup</span></button>        
@@ -39,25 +41,19 @@
                     <label>Password:</label>
                     <input type="text" name="password" placeholder="Enter your password">
                     <input class="signOnButton" type="submit" value="Log In" name="">
-                    <input class="forgotPassword" type="url" value="Forgot Password" name=" ">
-                    <!--How to do a url?-->
-                </div>
-                <!--should i make a new page for sign up? i think it would look a little nicer-->
-                <h2 class="headers">New User:</h2>
-                <div class='logInInputs'>
-                    <label> New username:</label>
-                    <!-- will ppl be able to log in with their email or only their username? -->
-                    <input type="text" name="username">
-                </div>
-                <div class='logInInputs'>
-                    <label>New Password:</label>
-                    <input type="text" name="password">
-                    <label>Confirm Password:</label>
-                    <input type="text" name="password">
-                    <input class="signOnButton" type="submit" value="Sign Up" name=" ">
+                    <a href="resetPass.html">
+                        <input class="forgotPassword" type="url" value="Forgot Password?" name=" ">
+                    </a>
+                    <a href="sign-up.html">
+                        <input class="signUpLink" type ="url" value="Don't have an account?" name=" ">
+                    </a>
                 </div>
             </form>
         </main>
+        <footer>
+            AnythingGoes App &#183 COMPE561
+          </footer>
+          <script src="scripts.js"></script>
     </body>
 </html>
 
