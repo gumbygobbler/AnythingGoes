@@ -22,7 +22,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <NavBar />
-      <div className="container">
+      <div className="container" style={{}}>
         <div>
           <Routes>
             <Route index element={<Welcome />} />

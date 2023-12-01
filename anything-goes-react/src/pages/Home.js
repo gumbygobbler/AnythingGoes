@@ -14,7 +14,7 @@ const Home = () => {
   }, []);
 
   return (
-    <main>
+    <div>
       <h3>Home</h3>
       <hr />
       <h3>Your Fights</h3>
@@ -24,7 +24,6 @@ const Home = () => {
             <FightCard
               key={fight.id}
               id={fight.id}
-              image={fight.image}
               name={fight.name}
               text={fight.text}
               link={fight.link}
@@ -37,7 +36,7 @@ const Home = () => {
       <hr />
       <h3>Explore Other Fights</h3>
       <hr />
-    </main>
+    </div>
   );
 };
 
