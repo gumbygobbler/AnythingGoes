@@ -1,6 +1,8 @@
-import "./styles.css";
+// import "./styles.css";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import "bootstrap/dist/css/bootstrap.css";
 
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
@@ -17,11 +19,11 @@ import NoPage from "./pages/NoPage";
 
 function App() {
   return (
-    <div className="container">
-      <BrowserRouter>
-        <Header />
-        <NavBar />
-        <main>
+    <BrowserRouter>
+      <Header />
+      <NavBar />
+      <div className="container" style={{}}>
+        <div>
           <Routes>
             <Route index element={<Welcome />} />
             <Route path="/welcome" element={<Welcome />} />
@@ -33,10 +35,10 @@ function App() {
             <Route path="/fight" element={<Fight />} />
             <Route path="*" element={<NoPage />} />
           </Routes>
-        </main>
-      </BrowserRouter>
-      <Footer />
-    </div>
+        </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
