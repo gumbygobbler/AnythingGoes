@@ -17,7 +17,6 @@ def fighter_list(request, format=None):
 
     if request.method == 'POST':
         serializer = fighterSerializer(data = request.data)
-        print(serializer)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
