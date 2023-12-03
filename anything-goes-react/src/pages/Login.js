@@ -1,7 +1,7 @@
 import Validation from "../components/Validation"; //validation
 import React, { useEffect, useState } from "react";
 
-import Button from "react-bootstrap/Button";
+import { Button, Container } from "react-bootstrap";
 
 function Login() {
   const [values, setValues] = useState({
@@ -26,7 +26,7 @@ function Login() {
       values.name !== "" &&
       values.name !== ""
     ) {
-      alert("from submitted"); //logic goes here for sending to db
+      alert("form submitted"); //logic goes here for sending to db
     }
   }, [errors]);
 
@@ -36,7 +36,7 @@ function Login() {
         <div className="container" style={{ justifyContent: "center" }}>
           <label
             style={{
-              color: "red",
+              color: "rgb(200,200,200)",
               fontWeight: "bold",
               textAlign: "center",
               fontSize: "49px",
@@ -72,7 +72,9 @@ function Login() {
           ></input>
           {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
 
-          <button type="submit">Login</button>
+          <Button type="submit" variant="outline-light">
+            Login
+          </Button>
           {/* //ButtonLink to="/home" classes="general-button"Login/ButtonLink */}
         </div>
         <div className="container" style={{ justifyContent: "center" }}>
