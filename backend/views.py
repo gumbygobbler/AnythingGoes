@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework import status
 
 @api_view(['GET', 'POST'])
-def fighter_list(request, format=None):
+def fighter_list(request, format=None, *args, **kwargs):
     #get all the drinks
     #serialize them
     #return json
@@ -20,6 +20,16 @@ def fighter_list(request, format=None):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    # if request.method =='POST':
+    #     serializer = fighterSerializer(data = request.data)
+    #     if serializer.is_valid():
+    #         name = serializer.data['name']
+    #         manager = serializer.data['manager']
+    #         fighterImg = serializer.data['fighterImg']
+    #         fighter.objects.create(name = name, manager = manager, fighterImg = fighterImg)
+        
+    #     return JsonResponse(name)
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def fighter_detail(request, id, format=None):
