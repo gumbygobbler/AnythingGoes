@@ -1,26 +1,27 @@
 import React from "react";
-import './components.css';
+import "./components.css";
 import { Link } from "react-router-dom";
 
-
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 // import Card.Body from "react-bootstrap/esm/CardBody";
 // import Card.Img from "react-bootstrap/esm/CardImg";
 
 //Props needed for a full card: Image, Name, Text
 const AddCard = () => {
   return (
-    <div className="square-card">
-      <Card style={{backgroundColor: 'rgb(40,40,40)', color:'rgb(200,200,200)'}}>
+    <div className="mt-4 mb-5">
+      <Card
+        style={{ backgroundColor: "rgb(40,40,40)", color: "rgb(200,200,200)" }}
+      >
         {/* Add a plus image for adding a card */}
         <Card.Img />
         <Card.Body>
-          <Card.Title className="fight-item">Add Fight</Card.Title>
+          <Card.Title className="fight-item">Add Fighter</Card.Title>
           <div className="d-flex justify-content-center">
-            <Link to='/addfight'>
+            <Link to="/addfight">
               <Button type="button" variant="outline-light">
-                Add a New Fight
+                Add a New Fighter
               </Button>
             </Link>
           </div>

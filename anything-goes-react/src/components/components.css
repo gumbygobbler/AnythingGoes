@@ -9,29 +9,24 @@
 }
 
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 600px)); /* Adjust the column width as needed */
-    gap: 20px; /* Adjust the gap (spacing between items) as needed */
     justify-content: center;
+    border-top: none !important;
+    border-bottom: none !important;
   }
 
-  .square-card {
-    width: 100%;
-    max-width: 250px; /* Adjust the max-width as needed */
+  .fight-card {
+    max-width: 100%;
+    min-height: 250px;
+    border-color: rgb(27, 27, 27);
+  }
+
+  .fighter-card {
+    max-width: 100%;
+    min-height: 300px;
   }
   
   .card-image {
     width: 100%;
+    max-height: 150px;
     object-fit: scale-down;
-    padding-bottom: 20px; /* Create a square aspect ratio */
-  }
-
-  .fight-grid-container {
-    border-top: none !important;
-    border-bottom: none !important;
-  }
-  
-  .no-border > [class*='col-'] {
-    border-top: none !important;
-    border-bottom: none !important;
   }

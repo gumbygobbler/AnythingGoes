@@ -7,7 +7,7 @@ const Header = () => {
     <div>
       <header>
         <Link style={{ textDecoration: "none" }} to="/home">
-          <p className="home-title">Anything Goes Logo</p>
+          <p className="home-title">Anything Goes</p>
         </Link>
       </header>
     </div>

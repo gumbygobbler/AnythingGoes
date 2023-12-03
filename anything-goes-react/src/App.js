@@ -1,4 +1,4 @@
-// import "./styles.css";
+import "./styles.css";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -14,31 +14,53 @@ import About from "./pages/About";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import AddFight from "./pages/AddFight";
+import Fighter from "./pages/Fighter";
 import Fight from "./pages/Fight";
 import NoPage from "./pages/NoPage";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Header />
-      <NavBar />
-      <div className="container" style={{}}>
-        <div>
-          <Routes>
-            <Route index element={<Welcome />} />
-            <Route path="/welcome" element={<Welcome />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/addfight" element={<AddFight />} />
-            <Route path="/fight" element={<Fight />} />
-            <Route path="*" element={<NoPage />} />
-          </Routes>
+    <div className="App">
+      <BrowserRouter>
+        <Header />
+        <NavBar />
+        <div className="page-container">
+          <div className="side-component left">
+            <img
+              className="side-graphic"
+              src="/stickerbomb1.jpg"
+              alt="Left Aside Graphic"
+            />
+          </div>
+          <div className="main-content">
+            <div>
+              <Routes>
+                <Route index element={<Welcome />} />
+                <Route path="/welcome" element={<Welcome />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/addfight" element={<AddFight />} />
+                <Route path="/fighter" element={<Fighter />} />
+                <Route path="/fight" element={<Fight />} />
+                <Route path="*" element={<NoPage />} />
+              </Routes>
+            </div>
+            <div>
+              <Footer />
+            </div>
+          </div>
+          <div className="side-component right">
+            <img
+              className="side-graphic"
+              src="/stickerbomb2.jpg"
+              alt="Left Aside Graphic"
+            />
+          </div>
         </div>
-        <Footer />
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </div>
   );
 }
 

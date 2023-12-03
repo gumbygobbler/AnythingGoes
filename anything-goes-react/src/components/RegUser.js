@@ -1,21 +1,16 @@
 // import { ReactNode } from "react";
 
-interface Props {
-    children: string; //ReactNode;
-  }
-  
-  const RegUser = ({ children }: Props) => {
-    return (
-      <div className="mb-3">
-        <input
-          type="text"
-          className="form-control"
-          id="placeholder"
-          placeholder="Enter your new username"
-        ></input>
-      </div>
-    );
-  };
-  
-  export default RegUser;
-  
+const RegUser = ({ children }) => {
+  return (
+    <div className="mb-3">
+      <input
+        type="text"
+        className="form-control"
+        id="placeholder"
+        placeholder="Enter your new username"
+      ></input>
+    </div>
+  );
+};
+
+export default RegUser;
