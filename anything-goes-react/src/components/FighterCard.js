@@ -8,30 +8,35 @@ import { Link } from "react-router-dom";
 // import Card.Img from "react-bootstrap/esm/CardImg";
 
 //Props needed for a full card: Image, Name, Text
-//const defaultImage = "/no-img.png";
+const defaultImage = "/no-img.png";
 
-const FightCard = ({ name, text }) => {
+const FighterCard = ({ id, name, imagepath }) => {
   return (
     <div>
       <Card
-        className="fight-card d-flex justify-content-center"
+        className="fighter-card d-flex justify-content-center"
         style={{
           backgroundColor: "rgb(40,40,40)",
           color: "rgb(200,200,200)",
-          width: "14rem",
+          width: "20rem",
         }}
         onError={(e) => console.error("Error loading image:", e)}
       >
         <Card.Body>
           <Card.Title className="fight-item">{name}</Card.Title>
           <hr />
-          <Card.Text className="fight-item fight-text">{text}</Card.Text>
+          <Card.Img
+            className="card-image"
+            variant="top"
+            src={imagepath || defaultImage}
+          />
+          <hr />
         </Card.Body>
         <Card.Footer>
           <div className="d-flex justify-content-center">
             <Link to="/fighter">
               <Button type="button" variant="outline-light">
-                View Fight
+                View Fighter
               </Button>
             </Link>
           </div>
@@ -41,4 +46,4 @@ const FightCard = ({ name, text }) => {
   );
 };
 
-export default FightCard;
+export default FighterCard;

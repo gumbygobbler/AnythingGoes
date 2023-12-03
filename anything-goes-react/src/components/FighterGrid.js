@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-const FightGrid = ({ colCount, children, sm, md }) => {
+const FighterGrid = ({ colCount, children, sm, md }) => {
   const rowCount = Math.ceil(children.length / colCount);
 
   const renderRows = () => {
@@ -18,14 +18,14 @@ const FightGrid = ({ colCount, children, sm, md }) => {
 
       for (let colIndex = startIndex; colIndex < endIndex; colIndex++) {
         cols.push(
-          <Col key={colIndex} sm={sm} md={md} className="mb-2 no-gutters">
+          <Col key={colIndex} sm={sm} md={md} className="mb-2">
             {children[colIndex]}
           </Col>
         );
       }
 
       rows.push(
-        <Row key={row} className="justify-content-center no-border">
+        <Row key={row} className="justify-content-center">
           {cols}
         </Row>
       );
@@ -45,4 +45,4 @@ const FightGrid = ({ colCount, children, sm, md }) => {
   );
 };
 
-export default FightGrid;
+export default FighterGrid;
