@@ -9,16 +9,16 @@ function InputBox() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (fighter || fighterImage === "") {
-      alert("Please enter both an image and a name for the fighter.");
-    } else {
+    // if (fighter || fighterImage === "") {
+    //   alert("Please enter both an image and a name for the fighter." + fighter + fighterImage);
+    // } else {
       const newFightData = {
-        id: 6,
-        name: fighter,
-        "image-path": fighterImage,
+        "name": fighter,
+        "manager": "burt",
+        "fighterImg": fighterImage
       };
       try {
-        const response = fetch("http://localhost:3001/fighters", {
+        const response = fetch("http://localhost:3001/fighters/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -34,7 +34,7 @@ function InputBox() {
       } catch (error) {
         console.error("Error adding new fight data:", error);
       }
-    }
+    //}
   };
 
   function handleChange(e) {
@@ -47,7 +47,7 @@ function InputBox() {
       <h1>What does your fighter look like?</h1>
       <br></br>
       <form onSubmit={handleSubmit}>
-        <label for="fighter">Select An Image</label>
+        <label htmlFor="fighter">Select An Image</label>
         <br></br>
         <br></br>
         <img
@@ -67,7 +67,7 @@ function InputBox() {
         />
         <br></br>
         <br></br>
-        <label for="fighterName">What is the name of your fighter?</label>
+        <label htmlFor="fighterName">What is the name of your fighter?</label>
         <br></br>
         <br></br>
         <input
