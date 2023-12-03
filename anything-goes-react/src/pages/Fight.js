@@ -18,7 +18,8 @@ const tempImage2 = {
 const Home = () => {
   return (
     <>
-      <h2>Fight</h2>
+      <h2>Fight:</h2>
+      
       <FightScreen fighter1 = {tempImage} fighter2 = {tempImage2}/>
     </>
   );
