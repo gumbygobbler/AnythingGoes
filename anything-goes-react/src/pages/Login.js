@@ -1,4 +1,3 @@
-import LoginUser from "../components/LoginUser";
 import Validation from "../components/Validation"; //validation
 import React, {useEffect, useState} from "react";
 
@@ -17,12 +16,12 @@ function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    setErrors(Validation(values));
+    setErrors(Validation(values, 1));
   }
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && (values.name !== "" && values.name !== "")) {
-      alert("from submitted");
+      alert("from submitted"); //logic goes here for sending to db
     }
   }, [errors])
 
@@ -42,7 +41,7 @@ function Login() {
           {/* //ButtonLink to="/home" classes="general-button"Login/ButtonLink */}
         </div>
         <div className="container" style={{ justifyContent: "center"}}>
-          <span className="psw">Not a User?<a href="#">Sign Up!</a></span>
+          <span className="psw">Not a User?<a href="/Signup">Sign Up!</a></span>
         </div>
       </form>
     </div>
@@ -75,59 +74,4 @@ function Login() {
 //   );
 // }; */}
 
-
-
-// {/* 
-//         <div>
-//           <h1 style={{ color: "red", fontWeight: "bold", textAlign: "center" }}>
-//             Returning User:
-//           </h1>
-//         </div>
-//         <div style={{ paddingLeft: 350, paddingRight: 350 }}>
-//           <p>Username:</p>
-//         </div>
-//         <div style={{ paddingLeft: 150, paddingRight: 150, marginTop: 25 }}>
-//           <LoginUser uid="2" namepasskeystate="username" logregstate="cock">cockballs</LoginUser>
-//         </div> */}
-//         {/*
-//         <div style={{ paddingLeft: 350, paddingRight: 350 }}>
-//           <p>Password:</p>
-//         </div>
-//         <div style={{ paddingLeft: 350, paddingRight: 350 }}>
-//           <LoginPass children={test}></LoginPass>
-//         </div>
-//         <div style={{ paddingLeft: 550, paddingRight: 550 }}>
-//           <Button color="outline-light">LOGIN</Button>
-//         </div>
-//         <br />
-//         <div>
-//           <h1 style={{ color: "red", fontWeight: "bold", textAlign: "center" }}>
-//             New User:
-//           </h1>
-//         </div>
-//         <div style={{ paddingLeft: 350, paddingRight: 350 }}>
-//           <p>New Username:</p>
-//         </div>
-//         <div style={{ paddingLeft: 350, paddingRight: 350 }}>
-//           <RegUser children={test}></RegUser>
-//         </div>
-//         <div style={{ paddingLeft: 350, paddingRight: 350 }}>
-//           <p>New Password:</p>
-//         </div>
-//         <div style={{ paddingLeft: 350, paddingRight: 350 }}>
-//           <RegPass children={test}></RegPass>
-//         </div>
-//         <div style={{ paddingLeft: 350, paddingRight: 350 }}>
-//           <p>Confirm Password:</p>
-//         </div>
-//         <div style={{ paddingLeft: 350, paddingRight: 350 }}>
-//           <RegPass children={test}></RegPass>
-//         </div>
-//         <div style={{ paddingLeft: 550, paddingRight: 550 }}>
-//           <Button color="outline-light">SIGN UP</Button>
-//         </div> */}
-//       </main>
-//     </>
-//   );
-// }
  export default Login;
