@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import FightGrid from "../components/FightGrid";
 import FighterGrid from "../components/FighterGrid";
@@ -6,10 +6,13 @@ import FightCard from "../components/FightCard";
 import FighterCard from "../components/FighterCard";
 
 import AddCard from "../components/AddCard";
+import AuthContext from "../context/AuthContext";
 
 const Home = () => {
   const [fights, setFights] = useState([]);
   const [fighters, setFighters] = useState([]);
+
+  let { user } = useContext(AuthContext);
 
   useEffect(() => {
     fetch("http://localhost:3001/fights")

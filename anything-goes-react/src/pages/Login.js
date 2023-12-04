@@ -1,9 +1,12 @@
 import Validation from "../components/Validation"; //validation
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 
 import { Button, Container } from "react-bootstrap";
+import AuthContext from "../context/AuthContext";
 
 function Login() {
+  let { loginUser } = useContext(AuthContext);
+
   const [values, setValues] = useState({
     name: "",
     password: "",
@@ -31,50 +34,61 @@ function Login() {
   }, [errors]);
 
   return (
-    <div className="wrap">
-      <form onSubmit={handleSubmit}>
-        <div className="container" style={{ justifyContent: "center" }}>
-          <label
-            style={{
-              color: "rgb(200,200,200)",
-              fontWeight: "bold",
-              textAlign: "center",
-              fontSize: "49px",
-            }}
-          >
-            Username
-          </label>
-          <input
-            type="text"
-            placeholder="Enter Username"
-            name="name"
-            value={values.name}
-            onChange={handleChange}
-          ></input>
-          {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
-
-          <label
-            style={{
-              color: "red",
-              fontWeight: "bold",
-              textAlign: "center",
-              fontSize: "49px",
-            }}
-          >
-            password
-          </label>
-          <input
-            type="password"
-            placeholder="Enter Password"
-            name="password"
-            value={values.password}
-            onChange={handleChange}
-          ></input>
-          {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
-
-          <Button type="submit" variant="outline-light">
-            Login
-          </Button>
+    <div
+      className="mt-5 d-flex justify-content-center"
+      style={{ height: "900px" }}
+    >
+      <form onSubmit={loginUser}>
+        <div className="container login-box">
+          <div>
+            <label
+              style={{
+                color: "rgb(200,200,200)",
+                textAlign: "center",
+                fontSize: "24px",
+              }}
+            >
+              Username
+            </label>
+            <input
+              className="login-entry"
+              type="text"
+              placeholder="Enter Username"
+              name="username"
+              value={values.username}
+              onChange={handleChange}
+            ></input>
+            {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
+          </div>
+          <br />
+          <div>
+            <label
+              style={{
+                color: "rgb(200,200,200)",
+                textAlign: "center",
+                fontSize: "28px",
+              }}
+            >
+              Password
+            </label>
+            <input
+              className="login-entry"
+              type="password"
+              placeholder="Enter Password"
+              name="password"
+              value={values.password}
+              onChange={handleChange}
+            ></input>
+            {errors.password && (
+              <p style={{ color: "red" }}>{errors.password}</p>
+            )}
+          </div>
+          <br />
+          <div className="d-flex justify-content-center mt-5">
+            <Button type="submit" variant="outline-light">
+              Login
+            </Button>
+          </div>
           {/* //ButtonLink to="/home" classes="general-button"Login/ButtonLink */}
         </div>
         <div className="container" style={{ justifyContent: "center" }}>
