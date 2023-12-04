@@ -39,8 +39,10 @@ export const AuthProvider = ({ children }) => {
     console.log("response: ", response);
     if (response.status === 200) {
       setAuthTokens(data);
-      setUser(jwtDecode(data.access));
+      const decodedData = jwtDecode(data.refresh);
+      setUser(decodedData);
       localStorage.setItem("authTokens", JSON.stringify(data));
+      localStorage.setItem("Username", user);
       console.log("decoded data: ", user);
       navigate("/home");
     } else {
@@ -49,7 +51,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   let updateToken = async (e) => {
-    console.log("update token called.");
+    //console.log("update token called.");
     let response = await fetch("http://127.0.0.1:8000/api/token/refresh/", {
       method: "POST",
       headers: {
@@ -59,6 +61,7 @@ export const AuthProvider = ({ children }) => {
         refresh: authTokens.refresh,
       }),
     });
+
     let data = await response.json();
 
     if (response.status === 200) {
@@ -74,6 +77,7 @@ export const AuthProvider = ({ children }) => {
     setAuthTokens(null);
     setUser(null);
     localStorage.removeItem("authTokens");
+    localStorage.removeItem("Username");
     navigate("/login");
   };
 
@@ -89,7 +93,7 @@ export const AuthProvider = ({ children }) => {
       if (authTokens) {
         updateToken();
       }
-    }, 2000);
+    }, 4000);
     return () => clearInterval(interval);
   }, [authTokens, loading]);
 

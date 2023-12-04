@@ -42,14 +42,15 @@ function App() {
                 <Routes>
                   <Route index element={<Welcome />} />
                   <Route path="/welcome" element={<Welcome />} />
-                  <Route
+                  <Route path="/home" element={<Home />} />
+                  {/* <Route
                     path="/home"
                     element={
                       <PrivateRoute>
                         <Home />
                       </PrivateRoute>
                     }
-                  />
+                  /> */}
                   <Route path="/about" element={<About />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/signup" element={<Signup />} />
