@@ -20,8 +20,8 @@ const Fight = () => {
 
       <div className="fighter-stats mb-5 mt-3">
         <Stack gap={3}>
-          <div className="align-items-center mt-5">Fight Participated</div>
-          <div className="align-items-center">Fights Won</div>
+          <div className="align-items-center mt-5">Fight Participated: </div>
+          <div className="align-items-center">Fights Won: </div>
         </Stack>
       </div>
       <div>

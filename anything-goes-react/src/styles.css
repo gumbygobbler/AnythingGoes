@@ -54,6 +54,8 @@ body{
 
 .about-page{
     padding-bottom: 10px;
+    height: 100 vh;
+    width: 100%;
 }
 
 .fighter-page{
