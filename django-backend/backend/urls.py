@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from backend import views
 from rest_framework.urlpatterns import format_suffix_patterns
 from django.conf import settings
@@ -24,7 +24,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('fighters/', views.fighter_list),
-    path('fighters/<int:id>', views.fighter_detail)
+    path('fighters/<int:id>', views.fighter_detail),
+    
+    path('api/', include('authentification.api.urls'))
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
