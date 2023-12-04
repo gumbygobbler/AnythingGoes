@@ -228,6 +228,7 @@ footer{
     border-width: 5px;
     margin-left: 5px;
     margin-right: 5px;
+    background-color:rgb(90, 30, 130);
 }
 
 .blue-bar {
@@ -485,4 +486,39 @@ footer{
 
 .elementIcon:hover icon{
     transform: scale(10);
+}
+
+.about-modal-image-button {
+    max-width:200px;
+    max-height: 200px;
+    margin-left:10px;
+    margin-right:10px;
+
+}
+
+.modal-container {
+    max-width: 750px;
+    width: 70%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    background-color: gray;
+    border-style: outset;
+    border-width:5px;
+    align-content: center;
+}
+
+.modal-admin-description {
+    margin:15px;
+}
+
+.modal-admin-name {
+    text-align: center;
+}
+
+.about-admin-profile-container {
+    align-items: center;
+    justify-content: center;
 }
