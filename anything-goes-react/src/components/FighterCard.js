@@ -34,7 +34,7 @@ const FighterCard = ({ id, name, imagepath }) => {
         </Card.Body>
         <Card.Footer>
           <div className="d-flex justify-content-center">
-            <Link to="/fighter">
+            <Link to={{ pathname: "/fighter", state: { id } }}>
               <Button type="button" variant="outline-light">
                 View Fighter
               </Button>

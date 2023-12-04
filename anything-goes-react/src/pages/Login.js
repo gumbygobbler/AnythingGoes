@@ -66,7 +66,7 @@ function Login() {
               style={{
                 color: "rgb(200,200,200)",
                 textAlign: "center",
-                fontSize: "28px",
+                fontSize: "24px",
               }}
             >
               Password
