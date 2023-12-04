@@ -72,6 +72,7 @@ body{
     margin-right: 50px;
     width: 450px;
     min-height: 300px;
+    object-fit: scale-down;
 }
 
 .fighter-stats{

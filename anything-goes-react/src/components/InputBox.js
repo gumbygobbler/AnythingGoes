@@ -1,9 +1,19 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import FormData from "form-data";
+// import GenerateFight from "../utils/GenerateFight";
 
 //Current fighter Id on launch of site
 let fighterURL = "";
+
+function GenerateFight(fighter1Id) {
+  //GET fighters and check length of the array
+  //If 0, then do nothing and send to page saying there's no other fighters
+  //Else, get a random id from the length of fighters and POST a fight with both IDs
+  //Return to home after this
+  console.log("Fight Generated with id: ", fighter1Id);
+}
+
 function InputBox() {
   const [fighterImage, setFighterImage] = useState();
   const [fighter, setFighter] = useState("");
@@ -11,29 +21,42 @@ function InputBox() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // if (fighter || fighterImage === "") {
-    //   alert("Please enter both an image and a name for the fighter." + fighter + fighterImage);
+    //   alert(
+    //     "Please enter both an image and a name for the fighter." +
+    //       fighter +
+    //       fighterImage
+    //   );
     // } else {
-
     const newFightData = new FormData();
     newFightData.append("name", fighter);
     newFightData.append("manager", "burt");
     newFightData.append("fighterImg", fighterImage);
 
     try {
-      const response = fetch("http://localhost:8000/fighters/", {
+      const response = fetch("http://localhost:3001/fighters/", {
         method: "POST",
         // headers: {
         //   "Content-Type": "application/json",
         // },
         // body: JSON.stringify(newFightData),
         body: newFightData,
-      }).then((res) => console.log(res));
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to add new fight");
+          }
+          console.log(response);
+          return response.json();
+        })
+        .then((createdFighter) => {
+          console.log("Created Fighter", createdFighter);
 
-      if (!response.ok) {
-        throw new Error("Failed to add new fight");
-      }
-
-      const createdFight = response.json();
+          GenerateFight(createdFighter.id);
+        })
+        .catch((error) => {
+          console.error("Error adding new fight data:", error);
+          console.log(fighterImage);
+        });
     } catch (error) {
       console.error("Error adding new fight data:", error);
       console.log(fighterImage);
