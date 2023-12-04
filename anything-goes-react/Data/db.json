@@ -2,61 +2,37 @@
   "fights": [
     {
       "id": 1,
-      "image": "",
       "name": "Doge vs. Panda",
-      "text": "Who's the Best Animal?",
-      "figher-1-id": 1,
-      "fighter-2-id": 2
+      "text": "Who's the Best Animal",
+      "link": ""
     },
     {
       "id": 2,
-      "image": "",
-      "name": "",
-      "text": "Random Text for Fight 2"
-    },
-    {
-      "id": 3,
-      "image": "",
-      "name": "Fight 3",
-      "text": "Random Text for Fight 3"
-    },
-    {
-      "id": 4,
-      "image": "",
-      "name": "Fight 4",
-      "text": "Random Text for Fight 4"
+      "name": "Silly Goose vs. Tom",
+      "text": "Who's Goofier",
+      "link": ""
     }
   ],
   "fighters": [
     {
       "id": 1,
       "name": "doge",
-      "image-path": ""
+      "imagepath": "/images/doge.jpg"
     },
     {
       "id": 2,
       "name": "panda",
-      "image-path": ""
+      "imagepath": "/images/red-panda.jpg"
     },
     {
       "id": 3,
       "name": "silly goose",
-      "image-path": ""
+      "imagepath": "/images/duck.jpg"
     },
     {
       "id": 4,
-      "name": "Cat Meme",
-      "image-path": "blob:http://localhost:3000/d04bbfbf-6f2f-4881-92a5-108c60dd22c7"
-    },
-    {
-      "id": 5,
-      "name": "Cat Meme",
-      "image-path": "blob:http://localhost:3000/d04bbfbf-6f2f-4881-92a5-108c60dd22c7"
-    },
-    {
-      "id": 6,
-      "name": "Cat Meme",
-      "image-path": "blob:http://localhost:3000/d04bbfbf-6f2f-4881-92a5-108c60dd22c7"
+      "name": "tom",
+      "imagepath": "/images/tom.jpg"
     }
   ],
   "users": [

@@ -1,8 +1,19 @@
 /* Website Wide Styles */
+.App {
+    text-align: default;
+    margin: 0px;
+    background-color: rgb(60, 60, 60);
+    color: rgb(200,200,200);
+    padding-bottom: 0px;
+  }
+  
+  .all-page{
+    background-color: rgb(60, 60, 60);
+  }
+
 body{
     background-color: rgb(60, 60, 60);
     padding:0px;
-    padding-bottom: 10px;
     font-family:'Montserrat', sans-serif;
     margin: 0px;
 }
@@ -10,8 +21,39 @@ body{
 .container{
     color: rgb(200, 200, 200);
     font-size:  20px;
-    display: grid;
-    grid-template-rows: 1fr 20px;
+}
+
+.page-container{
+    display: flex;
+}
+
+.main-content{
+    flex-grow: 1;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.side-component{
+    width: 10%;
+    background-color: rgb(30,30,30);
+}
+
+.left{
+    order: -1;
+}
+
+.right{
+    order: 1;
+}
+
+.side-graphic{
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-page{
+    padding-bottom: 10px;
 }
 
 header{
@@ -41,7 +83,7 @@ nav{
     border-radius: 2px;
     padding: 10px;
     display: grid;
-    grid-template-columns: 100px 100px 1fr 135px 15px;
+    grid-template-columns: 100px 100px 1fr 100px 100px;
 }
 
 .general-button{
@@ -53,6 +95,7 @@ nav{
     padding: 5px 10px;
     margin: 2px 10px;
     cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 .general-button:hover{
@@ -68,6 +111,20 @@ nav{
     justify-content: flex-end;
 }
 
+.login-box{
+    background-color: rgb(45,45,45);
+    padding-top: 40px;
+    padding-bottom: 30px;
+    border-radius: 5px;
+}
+
+.login-entry{
+    background-color: rgb(230,230,230);
+    border: none;
+    border-radius: 2px;
+    margin-left: 20px;
+}
+
 main{
     position:relative;
     margin: 5px 20px;
@@ -80,8 +137,9 @@ footer{
     font-weight: 100;
     opacity: 25;
     text-align:center;
-    margin-top: 10px;
-    margin-bottom:1px;
+    margin-top: 20px;
+    margin-bottom:0px;
+    padding-bottom: 30px;
 }
 
 .fight-grid{

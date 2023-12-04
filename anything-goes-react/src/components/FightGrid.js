@@ -4,9 +4,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import AddCard from "../components/AddCard";
-
-const FightGrid = ({ colCount, children, xs, sm, md, lg }) => {
+const FightGrid = ({ colCount, children, sm, md }) => {
   const rowCount = Math.ceil(children.length / colCount);
 
   const renderRows = () => {
@@ -20,21 +18,14 @@ const FightGrid = ({ colCount, children, xs, sm, md, lg }) => {
 
       for (let colIndex = startIndex; colIndex < endIndex; colIndex++) {
         cols.push(
-          <Col
-            key={colIndex}
-            xs={xs}
-            sm={sm}
-            md={md}
-            lg={lg}
-            className="mb-3 no-gutters"
-          >
+          <Col key={colIndex} sm={sm} md={md} className="mb-2 no-gutters">
             {children[colIndex]}
           </Col>
         );
       }
 
       rows.push(
-        <Row key={row} className="justify-content-start no-border">
+        <Row key={row} className="justify-content-center no-border">
           {cols}
         </Row>
       );
@@ -44,15 +35,12 @@ const FightGrid = ({ colCount, children, xs, sm, md, lg }) => {
   };
 
   return (
-    <Container fluid className="fight-grid-container">
+    <Container fluid className="grid-container">
       {renderRows().map((row, index) => (
         <Container key={index} className="mb-3">
           {row}
         </Container>
       ))}
-      <div className="d-flex justify-content-center">
-        <AddCard />
-      </div>
     </Container>
   );
 };

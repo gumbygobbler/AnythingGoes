@@ -4,33 +4,38 @@ import "./components.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
-import ButtonLink from "./ButtonLink";
 // import Card.Body from "react-bootstrap/esm/CardBody";
 // import Card.Img from "react-bootstrap/esm/CardImg";
 
 //Props needed for a full card: Image, Name, Text
-const defaultImage = "/no-img.png";
+//const defaultImage = "/no-img.png";
 
-const FightCard = ({ name, text, link }) => {
+const FightCard = ({ name, text }) => {
   return (
-    <div className="square-card">
+    <div>
       <Card
-        style={{ backgroundColor: "rgb(40,40,40)", color: "rgb(200,200,200)" }}
+        className="fight-card d-flex justify-content-center"
+        style={{
+          backgroundColor: "rgb(40,40,40)",
+          color: "rgb(200,200,200)",
+          width: "14rem",
+        }}
         onError={(e) => console.error("Error loading image:", e)}
       >
-        {/* <Card.Img className="card-image" variant="top" src={image || defaultImage} /> */}
         <Card.Body>
           <Card.Title className="fight-item">{name}</Card.Title>
           <hr />
           <Card.Text className="fight-item fight-text">{text}</Card.Text>
+        </Card.Body>
+        <Card.Footer>
           <div className="d-flex justify-content-center">
-            <Link to="/fight">
+            <Link to="/fighter">
               <Button type="button" variant="outline-light">
                 View Fight
               </Button>
             </Link>
           </div>
-        </Card.Body>
+        </Card.Footer>
       </Card>
     </div>
   );
