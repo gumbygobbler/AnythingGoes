@@ -1,11 +1,12 @@
 import Validation from "../components/Validation"; //validation
 import React, {useEffect, useState} from "react";
-
+import FormData from  'form-data'
 
 function Signup() {
   const [values, setValues] = useState({
     name: '',
-    password: ''
+    password: '',
+    password2: ''
   })
 
   const [errors, setErrors] = useState({ })
@@ -16,6 +17,25 @@ function Signup() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    
+    const newUserData = new FormData()
+    newUserData.append('username', values.name)
+    newUserData.append('password', values.password)
+    newUserData.append('password2', values.password2)
+
+    try {
+      const response = fetch("http://localhost:8000/api/user/register", {
+          method: "POST",
+          body: newUserData
+      })
+      .then(res => console.log(res))
+      console.log(response)
+      //const createdFight = response.json();
+  }   
+  catch (error) {
+      console.error("Error adding new fight data:", error);
+  }
+    
     setErrors(Validation(values, 2));
   }
 

@@ -28,7 +28,8 @@ urlpatterns = [
     path('managers/', views.manager_list),
     path('managers/<int:userID>', views.manager_detail),
     
-    path('api/', include('authentification.api.urls'))
+    path('api/', include('authentification.api.urls')),
+    path('api/user/', include('authentification.api.urls'))
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

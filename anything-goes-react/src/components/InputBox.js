@@ -1,13 +1,16 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import FormData from  'form-data'
+import AuthContext from "../context/AuthContext";
 
 //Current fighter Id on launch of site
 let fighterURL = ''
+
 function InputBox() {
   const [fighterImage, setFighterImage] = useState();
   const [fighter, setFighter] = useState("");
   
+  let {user} = useContext(AuthContext)
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,33 +20,49 @@ function InputBox() {
 
     const newFightData = new FormData()
     newFightData.append('name', fighter)
-    newFightData.append('manager', 'burt')
+    newFightData.append('manager', user.userid)
+    newFightData.append('fight', 5)
     newFightData.append('fighterImg', fighterImage)
 
     try {
-      const response = fetch("http://localhost:3001/fighters/", {
-        method: "POST",
-        // headers: {
-        //   "Content-Type": "application/json",
-        // },
-        // body: JSON.stringify(newFightData),
-        body: newFightData
-      }).then(res => console.log(res))
-
-      if (!response.ok) {
-        throw new Error("Failed to add new fight");
-      }
-
-      const createdFight = response.json();
-    } catch (error) {
-      console.error("Error adding new fight data:", error);
-      console.log(fighterImage);
+      fetch("http://localhost:8000/managers/" + user.user_id)
+      .then(response => response.json())
+      .then(data => {
+        newFightData.append('manager', data.id)
+        try {
+            const response = fetch("http://localhost:8000/fighters/", {
+                method: "POST",
+                body: newFightData
+            })
+            .then(res => console.log(res))
+            console.log(response)
+            //const createdFight = response.json();
+        }   
+        catch (error) {
+            console.error("Error adding new fight data:", error);
+        }
+      })
     }
-    //}
-  };
+    catch (error) {
+      console.error("Error searching for manager");
+    }
+  }
+  
+  //   try {
+  //     const response = fetch("http://localhost:8000/fighters/", {
+  //       method: "POST",
+  //       body: newFightData
+  //     }).then(res => console.log(res))
+  //     console.log(response)
+  //     const createdFight = response.json();
+  //   }
+  //   catch (error) {
+  //     console.error("Error adding new fight data:", error);
+  //   }
+  // };
 
   function handleChange(e) {
-    console.log(e.target.files[0])
+    console.log(user.user_id)
     if (e.target.files[0] != null)
       setFighterImage(e.target.files[0])
 
