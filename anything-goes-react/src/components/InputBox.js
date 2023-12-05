@@ -15,7 +15,11 @@ function InputBox() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // if (fighter || fighterImage === "") {
-    //   alert("Please enter both an image and a name for the fighter." + fighter + fighterImage);
+    //   alert(
+    //     "Please enter both an image and a name for the fighter." +
+    //       fighter +
+    //       fighterImage
+    //   );
     // } else {
 
     const newFightData = new FormData()
@@ -66,7 +70,7 @@ function InputBox() {
     if (e.target.files[0] != null)
       setFighterImage(e.target.files[0])
 
-    fighterURL = URL.createObjectURL(e.target.files[0])
+    fighterURL = URL.createObjectURL(e.target.files[0]);
   }
 
   return (
@@ -108,11 +112,7 @@ function InputBox() {
 
         <br></br>
         <br></br>
-        <input 
-          id="submit" 
-          type="submit" 
-          value="QUEUE THEM IN THE RING!" 
-        />
+        <input id="submit" type="submit" value="QUEUE THEM IN THE RING!" />
       </form>
     </div>
   );

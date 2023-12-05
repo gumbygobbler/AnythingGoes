@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 //Props needed for a full card: Image, Name, Text
 //const defaultImage = "/no-img.png";
 
-const FightCard = ({ name, text }) => {
+const FightCard = ({ name, text, id }) => {
   return (
     <div>
       <Card
@@ -29,7 +29,7 @@ const FightCard = ({ name, text }) => {
         </Card.Body>
         <Card.Footer>
           <div className="d-flex justify-content-center">
-            <Link to="/fighter">
+            <Link to={{ pathname: "/fight", state: { id } }}>
               <Button type="button" variant="outline-light">
                 View Fight
               </Button>

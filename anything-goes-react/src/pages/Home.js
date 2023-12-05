@@ -27,7 +27,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="mt-3 mb-4 border-0">
+    <div className="mt-3 mb-4 border-0" style={{ height: "100%" }}>
       <h2>Home</h2>
       <hr />
       <h3>Your Fighters</h3>
@@ -44,7 +44,8 @@ const Home = () => {
               key={fighter.id}
               id={fighter.id}
               name={fighter.name}
-              imagepath={fighter.imagepath}
+              fighterImg={fighter.fighterImg}
+              manager={fighter.manager}
             />
           ))
         ) : (
