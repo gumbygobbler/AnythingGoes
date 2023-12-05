@@ -2,7 +2,7 @@ import React from 'react'
 
 const Kaia = {
     "name": "Kaia",
-    "description": "I am Kaia. I am a developer for Anything Goes. I really really really really really really wanna zigazig ah ",
+    "description": "I am Kaia. I am a developer for Anything Goes. I like making food, designing websites, and playing games!",
     "picture": 'https://pbs.twimg.com/media/FzbBULhagAA0SKA?format=jpg&name=4096x4096'
   }
 
