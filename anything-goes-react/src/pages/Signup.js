@@ -2,6 +2,10 @@ import Validation from "../components/Validation"; //validation
 import React, {useEffect, useState} from "react";
 import FormData from  'form-data'
 
+import { useNavigate } from "react-router-dom";
+
+import Button from 'react-bootstrap/Button';
+
 function Signup() {
   const [values, setValues] = useState({
     name: '',
@@ -15,7 +19,7 @@ function Signup() {
     setValues({ ...values, [event.target.name]: event.target.value });
   }
 
-  function handleSubmit(event) {
+  function HandleSubmit(event) {
     event.preventDefault();
     
     const newUserData = new FormData()
@@ -38,7 +42,9 @@ function Signup() {
     
     setErrors(Validation(values, 2));
 
-    const newUserData = new FormData();
+    const navigate = useNavigate();
+
+    newUserData = new FormData();
     newUserData.append("username", values.name);
     newUserData.append("password", values.password);
 
@@ -54,12 +60,14 @@ function Signup() {
     } catch (error) {
       console.error("Error adding new user data:", error);
     }
+
+    navigate('/home');
     //}
   }
 
   return (
     <div style={{ height: "100vh" }}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={HandleSubmit}>
         <div
           className="container login-box d-flex flex-column justify-content-center mt-5"
           style={{ justifyContent: "center" }}

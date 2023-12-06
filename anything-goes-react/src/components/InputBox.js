@@ -4,14 +4,33 @@ import FormData from  'form-data'
 import AuthContext from "../context/AuthContext";
 
 //Current fighter Id on launch of site
-let fighterURL = ''
+let fighterURL = "";
+
 
 function InputBox() {
   const [fighterImage, setFighterImage] = useState();
   const [fighter, setFighter] = useState("");
+  const [fightData, setFightData] = useState("");
+
+  let { user } = useContext(AuthContext);
+
+  function GenerateFight(fighter1Id) {
+    //GET fighters and check length of the array
+    //If 0, then do nothing and send to page saying there's no other fighters
+    //Else, get a random id from the length of fighters and POST a fight with both IDs
+    //Return to home after this
+    console.log("Fight Generated with id as fighterId1: ", fighter1Id);
   
-  let {user} = useContext(AuthContext)
+    //Fetch the fights data 
+    const response = fetch("http://localhost:3001/fights")
+        .then((response) => response.json())
+        .then((data) => setFightData(data))
+        .catch((error) => console.error("Error fetching fights data:", error));
+    
+    console.log('GET Fight Data: ', fightData.length);
+    }
   
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // if (fighter || fighterImage === "") {
