@@ -15,12 +15,12 @@ const Home = () => {
   let { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch("http://localhost:3001/fights")
+    fetch("http://localhost:8000/fights")
       .then((response) => response.json())
       .then((data) => setFights(data))
       .catch((error) => console.error("Error fetching fights data:", error));
 
-    fetch("http://localhost:3001/fighters")
+    fetch("http://localhost:8000/fighters")
       .then((response) => response.json())
       .then((data) => setFighters(data))
       .catch((error) => console.error("Error fetching fighter data:", error));
