@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "../styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,11 +7,11 @@ import {
   faPeopleGroup,
   faRobot,
 } from "@fortawesome/free-solid-svg-icons";
-import AboutModalBrent from "../components/AboutModalBrent"
-import AboutModalAaron from "../components/AboutModalAaron"
-import AboutModalBryan from "../components/AboutModalBryan"
-import AboutModalAndrew from "../components/AboutModalAndrew"
-import AboutModalKaia from "../components/AboutModalKaia"
+import AboutModalBrent from "../components/AboutModalBrent";
+import AboutModalAaron from "../components/AboutModalAaron";
+import AboutModalBryan from "../components/AboutModalBryan";
+import AboutModalAndrew from "../components/AboutModalAndrew";
+import AboutModalKaia from "../components/AboutModalKaia";
 
 const profilePicture = {
   "Aaron": 'https://media.discordapp.net/attachments/1169434139771019347/1180957688818049084/IMG_8057.png?ex=657f4f8e&is=656cda8e&hm=2da15627e28be3b699750aca194694f9407bb05f735b9e59595d71c978d12bdb&=&width=557&height=670',
@@ -25,12 +25,11 @@ const profilePicture = {
 
 
 function About() {
-  
-  const [openModalBrent, setOpenModalBrent] = useState(false)
-  const [openModalAaron, setOpenModalAaron] = useState(false)
-  const [openModalBryan, setOpenModalBryan] = useState(false)
-  const [openModalAndrew, setOpenModalAndrew] = useState(false)
-  const [openModalKaia, setOpenModalKaia] = useState(false)
+  const [openModalBrent, setOpenModalBrent] = useState(false);
+  const [openModalAaron, setOpenModalAaron] = useState(false);
+  const [openModalBryan, setOpenModalBryan] = useState(false);
+  const [openModalAndrew, setOpenModalAndrew] = useState(false);
+  const [openModalKaia, setOpenModalKaia] = useState(false);
   return (
     <div>
       <section className="container about-page">
@@ -48,7 +47,7 @@ function About() {
                 color: "rgb(130, 39, 163)",
               }}
             />
-            <div class="elementInfo">
+            <div className="elementInfo">
               <h2>Who We Are</h2>
               <p>
                 Anything Goes was created by a group of friends who sought to
@@ -59,7 +58,7 @@ function About() {
             </div>
           </div>
 
-          <div class="elementIcon">
+          <div className="elementIcon">
             <FontAwesomeIcon
               icon={faRobot}
               style={{
@@ -68,7 +67,7 @@ function About() {
                 color: "rgb(130, 39, 163)",
               }}
             />
-            <div class="elementInfo">
+            <div className="elementInfo">
               <h2>Functionality</h2>
               <p>
                 We have created a virtual arena where you can upload your
@@ -80,7 +79,7 @@ function About() {
             </div>
           </div>
 
-          <div class="elementIcon">
+          <div className="elementIcon">
             <FontAwesomeIcon
               icon={faCircleUser}
               style={{
@@ -89,7 +88,7 @@ function About() {
                 color: "rgb(130, 39, 163)",
               }}
             />
-            <div class="elementInfo">
+            <div className="elementInfo">
               <h2>User Friendly</h2>
               <p>
                 We strived to make a website personal to each user as well as
@@ -100,7 +99,7 @@ function About() {
             </div>
           </div>
 
-          <div class="elementIcon">
+          <div className="elementIcon">
             <FontAwesomeIcon
               icon={faLightbulb}
               style={{
@@ -109,7 +108,7 @@ function About() {
                 color: "rgb(130, 39, 163)",
               }}
             />
-            <div class="elementInfo">
+            <div className="elementInfo">
               <h2>Aspirations</h2>
               <p>
                 Made to work best on desktop computers and laptops, our website
@@ -121,64 +120,70 @@ function About() {
           </div>
         </div>
 
-              <div className='fight-page-images'>
+        <div className="fight-page-images">
+          <div>
+            <img
+              className="about-modal-image-button"
+              onClick={() => setOpenModalBrent(true)}
+              src={profilePicture.Brent}
+            />
+            <AboutModalBrent
+              open={openModalBrent}
+              close={() => setOpenModalBrent(false)}
+            />
+          </div>
 
-              <div>
-                  <img 
-                  className = "about-modal-image-button"
-                  onClick = {() => setOpenModalBrent(true)}
-                  src={profilePicture.Brent}/>
-                  <AboutModalBrent open = {(openModalBrent)} close = {() => setOpenModalBrent(false)}/>
-              </div>
+          <div>
+            <img
+              className="about-modal-image-button"
+              onClick={() => setOpenModalAaron(true)}
+              src={profilePicture.Aaron}
+            />
+            <AboutModalAaron
+              open={openModalAaron}
+              close={() => setOpenModalAaron(false)}
+            />
+          </div>
 
-              <div>
-                  <img 
-                  className = "about-modal-image-button"
-                  onClick = {() => setOpenModalAaron(true)}
-                  src={profilePicture.Aaron}/>
-                  <AboutModalAaron open = {(openModalAaron)} close = {() => setOpenModalAaron(false)}/>
-              </div>
+          <div>
+            <img
+              className="about-modal-image-button"
+              onClick={() => setOpenModalBryan(true)}
+              src={profilePicture.Bryan}
+            />
+            <AboutModalBryan
+              open={openModalBryan}
+              close={() => setOpenModalBryan(false)}
+            />
+          </div>
 
-              <div>
-                  <img 
-                  className = "about-modal-image-button"
-                  onClick = {() => setOpenModalBryan(true)}
-                  src={profilePicture.Bryan}/>
-                  <AboutModalBryan open = {(openModalBryan)} close = {() => setOpenModalBryan(false)}/>
-              </div>
+          <div>
+            <img
+              className="about-modal-image-button"
+              onClick={() => setOpenModalAndrew(true)}
+              src={profilePicture.Andrew}
+            />
+            <AboutModalAndrew
+              open={openModalAndrew}
+              close={() => setOpenModalAndrew(false)}
+            />
+          </div>
 
-              <div>
-                  <img 
-                  className = "about-modal-image-button"
-                  onClick = {() => setOpenModalAndrew(true)}
-                  src={profilePicture.Andrew}/>
-                  <AboutModalAndrew open = {(openModalAndrew)} close = {() => setOpenModalAndrew(false)}/>
-              </div>
-
-              <div>
-                  <img 
-                  className = "about-modal-image-button"
-                  onClick = {() => setOpenModalKaia(true)}
-                  src={profilePicture.Kaia}/>
-                  <AboutModalKaia open = {(openModalKaia)} close = {() => setOpenModalKaia(false)}/>
-              </div>
-
-
-
-
-
-
-
-              </div>
-
-
-
-
-
-
+          <div>
+            <img
+              className="about-modal-image-button"
+              onClick={() => setOpenModalKaia(true)}
+              src={profilePicture.Kaia}
+            />
+            <AboutModalKaia
+              open={openModalKaia}
+              close={() => setOpenModalKaia(false)}
+            />
+          </div>
+        </div>
       </section>
     </div>
   );
-};
+}
 
 export default About;

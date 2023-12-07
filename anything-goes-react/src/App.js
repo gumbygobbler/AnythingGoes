@@ -17,6 +17,7 @@ import AddFight from "./pages/AddFight";
 import Fighter from "./pages/Fighter";
 import Fight from "./pages/Fight";
 import NoPage from "./pages/NoPage";
+import Logo from "./pages/logo";
 
 import PrivateRoute from "./utils/PrivateRoute";
 
@@ -42,20 +43,22 @@ function App() {
                 <Routes>
                   <Route index element={<Welcome />} />
                   <Route path="/welcome" element={<Welcome />} />
-                  <Route
+                  <Route path="/home" element={<Home />} />
+                  {/* <Route
                     path="/home"
                     element={
                       <PrivateRoute>
                         <Home />
                       </PrivateRoute>
                     }
-                  />
+                  /> */}
                   <Route path="/about" element={<About />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/signup" element={<Signup />} />
                   <Route path="/addfight" element={<AddFight />} />
                   <Route path="/fighter" element={<Fighter />} />
                   <Route path="/fight" element={<Fight />} />
+                  <Route path="/logo" element={<Logo />} />
                   <Route path="*" element={<NoPage />} />
                 </Routes>
               </div>

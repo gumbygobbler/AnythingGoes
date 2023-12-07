@@ -1,80 +1,150 @@
 import Validation from "../components/Validation"; //validation
 import React, {useEffect, useState} from "react";
+import FormData from  'form-data'
 
+import { useNavigate } from "react-router-dom";
+
+import Button from 'react-bootstrap/Button';
 
 function Signup() {
   const [values, setValues] = useState({
     name: '',
-    password: ''
+    password: '',
+    password2: ''
   })
 
-  const [errors, setErrors] = useState({ })
+  const [errors, setErrors] = useState({});
 
   function handleChange(event) {
-    setValues({...values, [event.target.name]: event.target.value})
+    setValues({ ...values, [event.target.name]: event.target.value });
   }
 
-  function handleSubmit(event) {
+  function HandleSubmit(event) {
     event.preventDefault();
+    
+    const newUserData = new FormData()
+    newUserData.append('username', values.name)
+    newUserData.append('password', values.password)
+    newUserData.append('password2', values.password2)
+
+    try {
+      const response = fetch("http://localhost:8000/api/user/register", {
+          method: "POST",
+          body: newUserData
+      })
+      .then(res => console.log(res))
+      console.log(response)
+      //const createdFight = response.json();
+  }   
+  catch (error) {
+      console.error("Error adding new fight data:", error);
+  }
+    
     setErrors(Validation(values, 2));
+
+    const navigate = useNavigate();
+
+    newUserData = new FormData();
+    newUserData.append("username", values.name);
+    newUserData.append("password", values.password);
+
+    try {
+      const response = fetch("http://localhost:8000/users/", {
+        method: "POST",
+        body: newUserData,
+      }).then((res) => console.log(res));
+
+      if (!response.ok) {
+        throw new Error("Failed to add new user");
+      }
+    } catch (error) {
+      console.error("Error adding new user data:", error);
+    }
+
+    navigate('/home');
+    //}
   }
 
-  useEffect(() => {
-    if (Object.keys(errors).length === 0 && (values.name !== "" && values.name !== "")) {
-      alert("from submitted"); //logic goes here for sending to db
-    }
-  }, [errors])
-
-  return(
-    <div className="wrap" >
-      <form onSubmit={handleSubmit}>
-        <div className="container"  style={{ justifyContent: "center"}}>
-          <label style={{ color: "lime", fontWeight: "bold", textAlign: "center", fontSize: "49px"}}>Username</label>
-          <input type="text" placeholder="Enter Username" name="name" value={values.name} onChange={handleChange}></input>
-          {errors.name && <p style={{color:"red"}}>{errors.name}</p>}
-          
-          <label style={{ color: "red", fontWeight: "bold", textAlign: "center", fontSize: "49px"}}>password</label>
-          <input type="password" placeholder="Enter Password" name="password" value={values.password} onChange={handleChange}></input>
-          {errors.password && <p style={{color:"red"}}>{errors.password}</p>}
-
-          <input type="password" placeholder="Enter Password Again" name="password2" value={values.password2} onChange={handleChange}></input>
-          {errors.password2 && <p style={{color:"red"}}>{errors.password2}</p>}
-          
-          <button type="submit">Sign Up</button>
+  return (
+    <div style={{ height: "100vh" }}>
+      <form onSubmit={HandleSubmit}>
+        <div
+          className="container login-box d-flex flex-column justify-content-center mt-5"
+          style={{ justifyContent: "center" }}
+        >
+          <div className=" d-flex flex-column justify-content-center">
+            <label
+              style={{
+                textAlign: "center",
+                fontSize: "24px",
+              }}
+            >
+              Username
+            </label>
+            <br />
+            <input
+              className="login-entry mt-1"
+              type="text"
+              placeholder="Enter Username"
+              name="name"
+              value={values.name}
+              onChange={handleChange}
+            ></input>
+            {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
+          </div>
+          <div className="mt-4 d-flex flex-column justify-content-center">
+            <label
+              className="text-center"
+              style={{
+                fontSize: "24px",
+              }}
+            >
+              Password
+            </label>
+            <br />
+            <input
+              className="login-entry mt-1"
+              type="password"
+              placeholder="Enter Password"
+              name="password"
+              value={values.password}
+              onChange={handleChange}
+            ></input>
+            {errors.password && (
+              <p style={{ color: "red" }}>{errors.password}</p>
+            )}
+            <br />
+            <input
+              className="login-entry mt-1"
+              type="password"
+              placeholder="Enter Password Again"
+              name="password2"
+              value={values.password2}
+              onChange={handleChange}
+            ></input>
+            {errors.password2 && (
+              <p style={{ color: "red" }}>{errors.password2}</p>
+            )}
+          </div>
+          <div className="d-flex justify-content-center">
+            <Button
+              className="login-button mt-5 mb-2"
+              type="submit"
+              variant="outline-light"
+            >
+              Sign Up
+            </Button>
+          </div>
           {/* //ButtonLink to="/home" classes="general-button"Login/ButtonLink */}
         </div>
-        <div className="container" style={{ justifyContent: "center"}}>
-          <span className="psw">Returning User?<a href="/Signup">Login!</a></span>
+        <div className="container" style={{ justifyContent: "center" }}>
+          <span className="psw">
+            Returning User?<a href="/Signup">Login!</a>
+          </span>
         </div>
       </form>
     </div>
-  )
+  );
 }
 
-// function Login() {
-//   const test = "test";
-
-//   //boolean
-
-  
-//   const userAccounts = [];
-//   userAccounts.push([1, "user1", "somePassword"]); //admin
-
-//   return (
-//     <>
-//       <main className="container" style={{ justifyContent: "center" }}>
-
-//       {/* <ButtonLink to="/about" classes="general-button">
-//           About
-//         </ButtonLink> */}
-//       {/* const ButtonLink = ({ uID , uname, pword }) => {
-//   return (
-//     <Link style={{ textDecoration: "none" }} to={to}>
-//       <button type="button" className={classes}>
-//         {children}
-//       </button>
-//     </Link>
-//   );
-// }; */}
-
- export default Signup;
+export default Signup;

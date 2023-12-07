@@ -66,7 +66,7 @@ function Login() {
               style={{
                 color: "rgb(200,200,200)",
                 textAlign: "center",
-                fontSize: "28px",
+                fontSize: "24px",
               }}
             >
               Password
@@ -100,30 +100,5 @@ function Login() {
     </div>
   );
 }
-
-// function Login() {
-//   const test = "test";
-
-//   //boolean
-
-//   const userAccounts = [];
-//   userAccounts.push([1, "user1", "somePassword"]); //admin
-
-//   return (
-//     <>
-//       <main className="container" style={{ justifyContent: "center" }}>
-
-//       {/* <ButtonLink to="/about" classes="general-button">
-//           About
-//         </ButtonLink> */}
-//       {/* const ButtonLink = ({ uID , uname, pword }) => {
-//   return (
-//     <Link style={{ textDecoration: "none" }} to={to}>
-//       <button type="button" className={classes}>
-//         {children}
-//       </button>
-//     </Link>
-//   );
-// }; */}
 
 export default Login;

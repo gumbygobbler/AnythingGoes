@@ -2,9 +2,8 @@
   "fights": [
     {
       "id": 1,
-      "name": "Doge vs. Panda",
-      "text": "Who's the Best Animal",
-      "link": ""
+      "fighterId1": 1,
+      "fighterId2": 2
     },
     {
       "id": 2,
@@ -17,22 +16,26 @@
     {
       "id": 1,
       "name": "doge",
-      "imagepath": "/images/doge.jpg"
+      "fighterImg": "/images/doge.jpg",
+      "manager": "admin"
     },
     {
       "id": 2,
       "name": "panda",
-      "imagepath": "/images/red-panda.jpg"
+      "fighterImg": "/images/red-panda.jpg",
+      "manager": "admin"
     },
     {
       "id": 3,
       "name": "silly goose",
-      "imagepath": "/images/duck.jpg"
+      "fighterImg": "/images/duck.jpg",
+      "manager": "admin"
     },
     {
       "id": 4,
       "name": "tom",
-      "imagepath": "/images/tom.jpg"
+      "fighterImg": "/images/tom.jpg",
+      "manager": "admin"
     }
   ],
   "users": [

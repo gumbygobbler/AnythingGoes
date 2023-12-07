@@ -197,3 +197,4 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3001"
 ]
 
+USER_DETAILS_SERIALIZER = 'authentification.api.serializers.registrationSerializer'
