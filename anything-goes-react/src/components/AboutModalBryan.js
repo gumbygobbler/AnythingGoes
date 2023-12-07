@@ -18,7 +18,7 @@ const AboutModalBryan = ({open,close}) => {
             <div className="modal-text-container">
 
                 <h2 className='modal-admin-name'> {Bryan.name} </h2>
-                <center><img src={Bryan.picture} style={{width:'250px'}}/></center>
+                <center><img src={Bryan.picture} style={{width:'30%'}}/></center>
                 <p className='modal-admin-description'>{Bryan.description}</p>
 
             </div>

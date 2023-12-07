@@ -18,7 +18,7 @@ const profilePicture = {
   "Brent": 'https://cdn.discordapp.com/attachments/1169434139771019347/1180957690101510144/IMG_8059.png?ex=657f4f8e&is=656cda8e&hm=0f60ca5a5c9447822268d85b4fabafb82a7667ccbbcd87450a1fa08696900c84&',
   "Bryan": 'https://media.discordapp.net/attachments/1169434139771019347/1180957689203929198/IMG_8058.png?ex=657f4f8e&is=656cda8e&hm=f971347ba77b2fd09c1a677c1ee2e2651e590221af2f9e01d991fb8cbedd07df&=&width=555&height=670',
   "Andrew": 'https://cdn.discordapp.com/attachments/1169434139771019347/1180957689623367781/IMG_8060.png?ex=657f4f8e&is=656cda8e&hm=7262dd7f7beac2a541943138b9d50d8628f860326e3ef824dcd2d8ac2d6725e0&',
-  "Kaia": 'https://pbs.twimg.com/media/FzbBULhagAA0SKA?format=jpg&name=4096x4096'
+  "Kaia": 'https://cdn.discordapp.com/attachments/772358194994610176/1182104209777242132/bruh_1.jpg?ex=65837b56&is=65710656&hm=1b312896cc3c56a8691c005c2471ff9e73a99bb125e9f49a12e71f75e4c524db&'
 }
 
 
