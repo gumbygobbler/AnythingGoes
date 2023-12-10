@@ -17,7 +17,7 @@ import AddFight from "./pages/AddFight";
 import Fighter from "./pages/Fighter";
 import Fight from "./pages/Fight";
 import NoPage from "./pages/NoPage";
-import Logo from "./pages/logo";
+import Logo from "./pages/Logo";
 
 import PrivateRoute from "./utils/PrivateRoute";
 

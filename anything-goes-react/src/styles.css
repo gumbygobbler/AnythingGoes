@@ -605,28 +605,31 @@ footer{
     display: flex;
     background-image: url("./full1.png");
     background-repeat: no-repeat;
-    background-size: 1500px;
+    /* background-size: 100%; */
+    background-size: cover;
     background-position: center;
     width: 100%;
-    height: 750px;
+    height: 100%;
+    transition: .1s;
+    animation-name: fade;
    }
    
-.leftFight img {
-    margin-top: 240px;
-    margin-left: 10px;
-    height:370px;
-    width:500px;
+   .leftFight img {
+    margin-top: 150px;
+    margin-left: 19vh;
+    height:420px;
+    width:420px;
   
     animation-duration: 2.3s;
     animation-name: slideinLeft;
     }
    
-.leftFight img:hover {
-      height:420px;
-      width:540px;
+    .leftFight img:hover {
+      height:460px;
+      width:460px;
       transition: 1s;
-      margin-left: 90px;
-      margin-top: 210px; 
+      margin-top: 150px;
+      margin-left: 19vh;
     }
   
     @keyframes slideinLeft {
@@ -637,19 +640,19 @@ footer{
       }
     
       to {
-        margin-top: 240px;
-        margin-left: 120px;
-        width: 500px;
-        height: 370px;
+        margin-top: 150px;
+        margin-left: 19vh;
+        width: 420px;
+        height: 420px;
       }
     
     }
   
 .rightFight img {
     
-    margin-top: 100px;
-    margin-left: 30px;
-    height:390px;
+    margin-top: 80px;
+    margin-right: 15vh;
+    height:420px;
     width:420px;
     padding-right: 60px;
     
@@ -657,12 +660,12 @@ footer{
     animation-name: slideinRight;
     }
   
-.rightFight img:hover {
-    height:420px;
-    width:470px;
-    transition: 1s;
-    margin-top: 70px;
-    margin-left: 20px;
+    .rightFight img:hover {
+      height:460px;
+      width:460px;
+      transition: 1s;
+      margin-top: 80px;
+      margin-right: 15vh;
   
     }
    
@@ -674,9 +677,9 @@ footer{
       }
    
       to {
-        margin-top: 100px;
-        margin-left: 50px;
-        height:390px;
+        margin-top: 80px;
+        margin-right: 10vh;
+        height:420px;
         width:420px;
       }
    
@@ -684,17 +687,17 @@ footer{
   
   
   
-  .backToHomeBtn {
+  .newFightLogoBtn {
     background-color: rgb(255, 255, 255);
     animation-duration: 5s;
-    animation-name: slideinDown;
+    animation-name: slideInDown;
     width: 190px;
     height: 70px;
     /* position:relative; */
     margin-top: 620px;
-    margin-left: 80px;
+    margin-left: 0px;
     font-weight: 500px;
-    font-size: 25px;
+    font-size: 20px;
     border-radius: 1.59rem;
     color:rgb(112, 18, 201);
     border-color: rgb(112, 18, 201);
@@ -703,12 +706,13 @@ footer{
   
   }
   
-  @keyframes slideinDown {
+  @keyframes slideInDown {
     from {
       margin-top: 2000px;
       padding-left: 700px;
       width: 1px;
       height: 1px;
+
     }
   
     to {
@@ -721,7 +725,7 @@ footer{
   
   }
    
-.backToHomeBtn:hover {
+  .newFightLogoBtn:hover {
     opacity: 1;
     border-color: black;
     background-color: rgb(112, 18, 201);
