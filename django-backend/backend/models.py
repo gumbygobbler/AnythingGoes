@@ -10,7 +10,7 @@ class fight(models.Model):
     # participant1 = models.OneToOneField(
     #     manager,
     #     on_delete=models.CASCADE,
-    # )
+    
     
     # participant2 = models.OneToOneField(
     #     manager,

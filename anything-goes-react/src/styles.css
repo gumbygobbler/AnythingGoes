@@ -531,10 +531,10 @@ footer{
 }
 
 .about-modal-image-button {
+    width: 100%;
     max-width:200px;
-    max-height: 200px;
-    margin-left:10px;
-    margin-right:10px;
+
+
 
 }
 

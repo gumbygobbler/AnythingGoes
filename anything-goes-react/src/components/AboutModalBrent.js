@@ -18,7 +18,7 @@ const AboutModalBrent = ({open,close}) => {
             <div className="modal-text-container">
 
                 <h2 className='modal-admin-name'> {Brent.name} </h2>
-                <center><img src={Brent.picture} style={{width:'250px'}}/></center>
+                <center><img src={Brent.picture} style={{width:'30%'}}/></center>
                 <p className='modal-admin-description'>{Brent.description}</p>
 
             </div>
