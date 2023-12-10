@@ -1,17 +1,23 @@
 import Validation from "../components/Validation"; //validation
-import React, {useEffect, useState} from "react";
-import FormData from  'form-data'
+import React, { useEffect, useState, useContext } from "react";
+import FormData from "form-data";
 
-import { useNavigate } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
 
-import Button from 'react-bootstrap/Button';
+import { Link, Navigate } from "react-router-dom";
+
+import Button from "react-bootstrap/Button";
 
 function Signup() {
+  let { user, loginUser } = useContext(AuthContext);
+
   const [values, setValues] = useState({
-    name: '',
-    password: '',
-    password2: ''
-  })
+    username: "",
+    password: "",
+    password2: "",
+  });
+
+  const [userId, setUserId] = useState(null);
 
   const [errors, setErrors] = useState({});
 
@@ -19,55 +25,71 @@ function Signup() {
     setValues({ ...values, [event.target.name]: event.target.value });
   }
 
-  function HandleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
-    
-    const newUserData = new FormData()
-    newUserData.append('username', values.name)
-    newUserData.append('password', values.password)
-    newUserData.append('password2', values.password2)
 
-    try {
-      const response = fetch("http://localhost:8000/api/user/register", {
-          method: "POST",
-          body: newUserData
-      })
-      .then(res => console.log(res))
-      console.log(response)
-      //const createdFight = response.json();
-  }   
-  catch (error) {
-      console.error("Error adding new fight data:", error);
-  }
-    
     setErrors(Validation(values, 2));
 
-    const navigate = useNavigate();
+    if (Object.keys(errors).length === 0) {
+      console.log("No errors detected");
+      const newUserData = new FormData();
+      newUserData.append("username", values.username);
+      newUserData.append("password", values.password);
+      newUserData.append("password2", values.password2);
 
-    newUserData = new FormData();
-    newUserData.append("username", values.name);
-    newUserData.append("password", values.password);
+      const newManagerData = new FormData();
+      newManagerData.append("name", values.name);
 
-    try {
-      const response = fetch("http://localhost:8000/users/", {
-        method: "POST",
-        body: newUserData,
-      }).then((res) => console.log(res));
-
-      if (!response.ok) {
-        throw new Error("Failed to add new user");
+      console.log(values.name);
+      //POST for User Data
+      try {
+        const response = fetch("http://localhost:8000/api/user/register", {
+          method: "POST",
+          body: newUserData,
+        })
+          .then((res) => {
+            console.log(res);
+            // Assuming loginUser and setUserId return promises
+            return Promise.all(
+              [loginUser(event), setUserId(user.user_id)],
+              newManagerData.append("userId", user.user_id)
+            );
+          })
+          .then(() => {
+            // This block will be executed after loginUser and setUserId are complete
+            console.log("User registration, login, and ID setting complete");
+          })
+          .then((secondResponse) => {
+            try {
+              const secondResponse = fetch("http://localhost:8000/managers", {
+                method: "POST",
+                body: newManagerData,
+              }).then((res) => console.log(res));
+              console.log(secondResponse);
+              //const createdFight = response.json();
+            } catch (error) {
+              console.error("Error adding new manager data:", error);
+            }
+          })
+          .catch((error) => {
+            console.error("Error adding new user data:", error);
+          });
+      } catch (error) {
+        console.error("Error in try-catch block:", error);
       }
-    } catch (error) {
-      console.error("Error adding new user data:", error);
+      //     .then((res) => console.log(res))
+      //     .then(loginUser(event))
+      //     .then(setUserId(user.user_id));
+      //   console.log(response);
+      // } catch (error) {
+      //   console.error("Error adding new user data:", error);
+      // }
     }
-
-    navigate('/home');
-    //}
   }
 
   return (
     <div style={{ height: "100vh" }}>
-      <form onSubmit={HandleSubmit}>
+      <form onSubmit={handleSubmit}>
         <div
           className="container login-box d-flex flex-column justify-content-center mt-5"
           style={{ justifyContent: "center" }}
@@ -86,11 +108,13 @@ function Signup() {
               className="login-entry mt-1"
               type="text"
               placeholder="Enter Username"
-              name="name"
-              value={values.name}
+              name="username"
+              value={values.username}
               onChange={handleChange}
             ></input>
-            {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
+            {errors.username && (
+              <p style={{ color: "red" }}>{errors.username}</p>
+            )}
           </div>
           <div className="mt-4 d-flex flex-column justify-content-center">
             <label
@@ -135,11 +159,13 @@ function Signup() {
               Sign Up
             </Button>
           </div>
-          {/* //ButtonLink to="/home" classes="general-button"Login/ButtonLink */}
         </div>
         <div className="container" style={{ justifyContent: "center" }}>
           <span className="psw">
-            Returning User?<a href="/Signup">Login!</a>
+            Returning User?{" "}
+            <Link to="/login">
+              <a>Login!</a>
+            </Link>
           </span>
         </div>
       </form>

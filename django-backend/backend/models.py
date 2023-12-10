@@ -10,6 +10,7 @@ class fight(models.Model):
     # participant1 = models.OneToOneField(
     #     manager,
     #     on_delete=models.CASCADE,
+    # )
     
     
     # participant2 = models.OneToOneField(
@@ -23,7 +24,7 @@ class fight(models.Model):
 class manager(models.Model):
     name = models.CharField(max_length = 200)
     
-    userID = models.OneToOneField(
+    userId = models.OneToOneField(
         User, 
         on_delete=models.CASCADE,
     )

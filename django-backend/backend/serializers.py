@@ -6,8 +6,13 @@ class fighterSerializer(serializers.ModelSerializer):
     class Meta:
         model = fighter
         fields = ['id', 'name', 'manager', 'fight', 'fighterImg']
+        
+class createFighterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = fighter
+        fields = ['name', 'manager', 'fight', 'fighterImg']
 
 class managerSerializer(serializers.ModelSerializer):
     class Meta:
         model = manager
-        fields = ['id', 'name', 'userID']
+        fields = ['id', 'name', 'userId']

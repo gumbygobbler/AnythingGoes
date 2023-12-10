@@ -1,16 +1,19 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
-import FormData from  'form-data'
+import FormData from "form-data";
 import AuthContext from "../context/AuthContext";
+import { Navigate } from "react-router-dom";
 
 //Current fighter Id on launch of site
 let fighterURL = "";
 
-
 function InputBox() {
   const [fighterImage, setFighterImage] = useState();
-  const [fighter, setFighter] = useState("");
-  const [fightData, setFightData] = useState("");
+  const [fighter, setFighter] = useState({});
+  const [fightData, setFightData] = useState({
+    fighterName: "",
+    fighterImage: "",
+  });
 
   let { user } = useContext(AuthContext);
 
@@ -20,16 +23,15 @@ function InputBox() {
     //Else, get a random id from the length of fighters and POST a fight with both IDs
     //Return to home after this
     console.log("Fight Generated with id as fighterId1: ", fighter1Id);
-  
-    //Fetch the fights data 
-    const response = fetch("http://localhost:3001/fights")
-        .then((response) => response.json())
-        .then((data) => setFightData(data))
-        .catch((error) => console.error("Error fetching fights data:", error));
-    
-    console.log('GET Fight Data: ', fightData.length);
-    }
-  
+
+    //Fetch the fights data
+    const response = fetch("http://localhost:8000/fights")
+      .then((response) => response.json())
+      .then((data) => setFightData(data))
+      .catch((error) => console.error("Error fetching fights data:", error));
+
+    console.log("GET Fight Data: ", fightData.length);
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,36 +43,38 @@ function InputBox() {
     //   );
     // } else {
 
-    const newFightData = new FormData()
-    newFightData.append('name', fighter)
-    newFightData.append('manager', user.userid)
-    newFightData.append('fight', 5)
-    newFightData.append('fighterImg', fighterImage)
+    const newFighterData = new FormData();
+    newFighterData.append("name", fighter);
+    newFighterData.append("manager", user.userid);
+    newFighterData.append("fight", 5);
+    newFighterData.append("fighterImg", fighterImage);
+    console.log(fighter);
+    console.log(fighterImage);
 
     try {
       fetch("http://localhost:8000/managers/" + user.user_id)
-      .then(response => response.json())
-      .then(data => {
-        newFightData.append('manager', data.id)
-        try {
-            const response = fetch("http://localhost:8000/fighters/", {
+        .then((response) => response.json())
+        .then((data) => {
+          newFighterData.append("manager", data.id);
+          try {
+            const response = fetch(
+              "http://localhost:8000/fighters/" + user.user_id,
+              {
                 method: "POST",
-                body: newFightData
-            })
-            .then(res => console.log(res))
-            console.log(response)
+                body: newFighterData,
+              }
+            ).then((res) => console.log(res));
+            console.log(response);
             //const createdFight = response.json();
-        }   
-        catch (error) {
-            console.error("Error adding new fight data:", error);
-        }
-      })
-    }
-    catch (error) {
+          } catch (error) {
+            console.error("Error adding new fighter data:", error);
+          }
+        });
+    } catch (error) {
       console.error("Error searching for manager");
     }
-  }
-  
+  };
+
   //   try {
   //     const response = fetch("http://localhost:8000/fighters/", {
   //       method: "POST",
@@ -85,10 +89,8 @@ function InputBox() {
   // };
 
   function handleChange(e) {
-    console.log(user.user_id)
-    if (e.target.files[0] != null)
-      setFighterImage(e.target.files[0])
-
+    console.log(user.user_id);
+    if (e.target.files[0] != null) setFighterImage(e.target.files[0]);
     fighterURL = URL.createObjectURL(e.target.files[0]);
   }
 

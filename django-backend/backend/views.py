@@ -1,8 +1,11 @@
 from django.http import JsonResponse
 from .models import fighter
 from .models import manager
+
 from .serializers import fighterSerializer
+from .serializers import createFighterSerializer
 from .serializers import managerSerializer
+
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
@@ -26,10 +29,10 @@ def manager_list(request, format=None, *args, **kwargs):
         
 
 @api_view(['GET', 'PUT', 'DELETE'])
-def manager_detail(request, userID, format=None):
+def manager_detail(request, userId, format=None):
 
     try:
-        managerData = manager.objects.get(userID = userID)
+        managerData = manager.objects.get(userId = userId)
     except manager.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     
@@ -49,21 +52,25 @@ def manager_detail(request, userID, format=None):
     
 
 @api_view(['GET', 'POST'])
-def fighter_list(request, format=None, *args, **kwargs):
+def fighter_list(request, user_id, format=None, *args, **kwargs):
     #get all the drinks
     #serialize them
     #return json
     if request.method == 'GET':
-        fighters = fighter.objects.all() #grabs all fighter objects
+        #user_id = request.query_params.get('userID', None)
+        managerData = manager.objects.get(userId = user_id)
+        fighters = fighter.objects.filter(manager = managerData.pk) #grabs all fighter objects for one manager
         serializer = fighterSerializer(fighters, many=True)
+        for data in serializer.data:
+            data['fighterImg'] = request.build_absolute_uri(data['fighterImg'])
         return Response(serializer.data)
-
+            
     if request.method == 'POST':
-        serializer = fighterSerializer(data = request.data)
+        serializer = createFighterSerializer(data = request.data)
         if serializer.is_valid():
             serializer.save()
-            #print("here" + serializer.data)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            context = {'data': serializer.data}
+            return Response(context, status.HTTP_201_CREATED)
 
     # if request.method =='POST':
     #     serializer = fighterSerializer(data = request.data)

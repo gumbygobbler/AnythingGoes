@@ -23,10 +23,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('fighters/', views.fighter_list),
-    path('fighters/<int:id>', views.fighter_detail),
-    path('managers/', views.manager_list),
-    path('managers/<int:userID>', views.manager_detail),
+    path('fighters/<int:user_id>', views.fighter_list),
+    #path('fighter-detail/<int:id>', views.fighter_detail),
+    path('managers', views.manager_list),
+    path('managers/<int:userId>', views.manager_detail),
     
     path('api/', include('authentification.api.urls')),
     path('api/user/', include('authentification.api.urls'))
