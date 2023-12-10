@@ -550,6 +550,23 @@ footer{
     border-style: outset;
     border-width:5px;
     align-content: center;
+
+}
+
+.logout-modal-container {
+    max-width: 750px;
+    width: 25%;
+    height: 20%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    background-color: gray;
+    border-style: outset;
+    border-width:5px;
+    align-content: center;
+
 }
 
 .modal-admin-description {
@@ -565,6 +582,24 @@ footer{
     justify-content: center;
 }
 
+.overlay {
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    z-index: 1;
+}
+
+.return-to-home-button {
+    left:50%;
+    margin: auto;
+
+
+}
+
+
 .logoContainer {
     background-color: black;
     display: flex;
@@ -576,7 +611,7 @@ footer{
     height: 750px;
    }
    
-   .leftFight img {
+.leftFight img {
     margin-top: 240px;
     margin-left: 10px;
     height:370px;
@@ -586,7 +621,7 @@ footer{
     animation-name: slideinLeft;
     }
    
-    .leftFight img:hover {
+.leftFight img:hover {
       height:420px;
       width:540px;
       transition: 1s;
@@ -610,7 +645,7 @@ footer{
     
     }
   
-   .rightFight img {
+.rightFight img {
     
     margin-top: 100px;
     margin-left: 30px;
@@ -622,12 +657,12 @@ footer{
     animation-name: slideinRight;
     }
   
-    .rightFight img:hover {
-      height:420px;
-      width:470px;
-      transition: 1s;
-      margin-top: 70px;
-      margin-left: 20px;
+.rightFight img:hover {
+    height:420px;
+    width:470px;
+    transition: 1s;
+    margin-top: 70px;
+    margin-left: 20px;
   
     }
    
@@ -686,18 +721,20 @@ footer{
   
   }
    
-  .backToHomeBtn:hover {
+.backToHomeBtn:hover {
     opacity: 1;
     border-color: black;
     background-color: rgb(112, 18, 201);
     color: white;
   }
 
-  .smallLogo img {
+.smallLogo img {
     width: 110px;
     height: 60px;
     margin-left: 30px;
     padding-bottom: 5px;
 
   }
+
+
      

@@ -1,5 +1,5 @@
 import "./styles.css";
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.css";
@@ -24,6 +24,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 import { AuthProvider } from "./context/AuthContext";
 
 function App() {
+  const [openModalLogout, setOpenModalLogout] = useState(false);
   return (
     <div className="App">
       <BrowserRouter>
