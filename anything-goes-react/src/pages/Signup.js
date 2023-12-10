@@ -18,7 +18,7 @@ function Signup() {
   function handleSubmit(event) {
     event.preventDefault();
     
-    const newUserData = new FormData()
+   newUserData = new FormData()
     newUserData.append('username', values.name)
     newUserData.append('password', values.password)
     newUserData.append('password2', values.password2)
