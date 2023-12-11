@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import ButtonLink from "./ButtonLink";
 import "../styles.css";
 import AuthContext from "../context/AuthContext";
-<<<<<<< HEAD
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
@@ -12,9 +11,7 @@ import {
   faRobot,
 } from "@fortawesome/free-solid-svg-icons";
 
-=======
 import LogoutModal from "./LogoutModal";
->>>>>>> a209749055ff5ad018414530bfce32462d402f3d
 
 const NavBar = () => {
   let { user, logoutUser } = useContext(AuthContext);
@@ -25,21 +22,7 @@ const NavBar = () => {
     <div>
       <LogoutModal open = {openModalLogout}/>
       <nav>
-<<<<<<< HEAD
-        <ButtonLink to="/home" classes="general-button">
-        <FontAwesomeIcon
-              icon={faHouse}
-              style={{
-                fontSize: "20px",
-                marginRight: "1px",
-                padding: "3px",
-                paddingTop: "0px",
-                color: "rgb(130, 39, 163)"
-              }}
-            />
-=======
         <ButtonLink classes="general-button">
->>>>>>> a209749055ff5ad018414530bfce32462d402f3d
           Home
         </ButtonLink>
         <ButtonLink to="/about" classes="general-button">
@@ -58,12 +41,7 @@ const NavBar = () => {
         {user ? (
           <>
             <p>User: {user.username}</p>
-<<<<<<< HEAD
-            <button
-              className="general-button"
-=======
             <button onClick = {() => setOpenModalLogout(true)}
->>>>>>> a209749055ff5ad018414530bfce32462d402f3d
               onClick={logoutUser}
             >
               Logout
