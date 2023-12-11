@@ -10,6 +10,8 @@ let fighterURL = "";
 function InputBox() {
   const [currentFighter, setCurrentFighter] = useState([]);
   const [secondFighter, setSecondFighter] = useState([]);
+  const [newFight, setNewFight] = useState([]);
+
   const [fighterImage, setFighterImage] = useState();
   const [fighter, setFighter] = useState();
   const [fighterData, setFighterData] = useState([]);
@@ -51,7 +53,17 @@ function InputBox() {
                   .then((response) => response.json())
                   .then((data) => setSecondFighter(data))
                   .then(() => {
+                    //Create the new name for the fight
+                    const newFightName = `${currentFighter.name} Vs. ${secondFighter.name}`;
+                    const newFightData = new FormData();
+                    newFightData.append("name", newFightName);
                     //POST a new fight
+                    fetch("http://localhost:8000/fights/new-fight/", {
+                      method: "POST",
+                      body: newFightData,
+                    })
+                      .then((response) => response.json())
+                      .then();
                     //GET that new fight and get the id
                     //PUT that new fight id into current fighter
                     //PUU that new fight id into second fighter
