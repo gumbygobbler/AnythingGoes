@@ -7,18 +7,20 @@ import {
   faPeopleGroup,
   faRobot,
 } from "@fortawesome/free-solid-svg-icons";
+import Image from 'react-bootstrap/Image';
 import AboutModalBrent from "../components/AboutModalBrent";
 import AboutModalAaron from "../components/AboutModalAaron";
 import AboutModalBryan from "../components/AboutModalBryan";
 import AboutModalAndrew from "../components/AboutModalAndrew";
 import AboutModalKaia from "../components/AboutModalKaia";
+import LogoutModal from "../components/LogoutModal";
 
 const profilePicture = {
-  "Aaron": 'https://media.discordapp.net/attachments/1169434139771019347/1180957688818049084/IMG_8057.png?ex=657f4f8e&is=656cda8e&hm=2da15627e28be3b699750aca194694f9407bb05f735b9e59595d71c978d12bdb&=&width=557&height=670',
-  "Brent": 'https://cdn.discordapp.com/attachments/1169434139771019347/1180957690101510144/IMG_8059.png?ex=657f4f8e&is=656cda8e&hm=0f60ca5a5c9447822268d85b4fabafb82a7667ccbbcd87450a1fa08696900c84&',
-  "Bryan": 'https://media.discordapp.net/attachments/1169434139771019347/1180957689203929198/IMG_8058.png?ex=657f4f8e&is=656cda8e&hm=f971347ba77b2fd09c1a677c1ee2e2651e590221af2f9e01d991fb8cbedd07df&=&width=555&height=670',
-  "Andrew": 'https://cdn.discordapp.com/attachments/1169434139771019347/1180957689623367781/IMG_8060.png?ex=657f4f8e&is=656cda8e&hm=7262dd7f7beac2a541943138b9d50d8628f860326e3ef824dcd2d8ac2d6725e0&',
-  "Kaia": 'https://cdn.discordapp.com/attachments/772358194994610176/1182104209777242132/bruh_1.jpg?ex=65837b56&is=65710656&hm=1b312896cc3c56a8691c005c2471ff9e73a99bb125e9f49a12e71f75e4c524db&'
+  "Aaron": 'https://media.licdn.com/dms/image/C4D03AQFXKNNz0EvbqQ/profile-displayphoto-shrink_400_400/0/1620264094067?e=1707955200&v=beta&t=Y69vwm2zSVlLhKIzX5_Cik2RCp7SFE0vu2qN5UE71Vo',
+  "Brent": 'https://media.licdn.com/dms/image/C4E03AQFwh5oOL_-epw/profile-displayphoto-shrink_400_400/0/1662750917369?e=1707955200&v=beta&t=0YnRJ55e7jMdv_0oH25R1hlvXzkLhGQqTonqo306374',
+  "Bryan": 'https://media.licdn.com/dms/image/D5603AQGbY4AJ4Ver7A/profile-displayphoto-shrink_400_400/0/1685167913689?e=1707955200&v=beta&t=sI3WgPGY74gIMLjLhQUjmHB7U0bLN02_wqbnDg5XYWY',
+  "Andrew": 'https://media.licdn.com/dms/image/D5603AQHACQ2AZNlzdQ/profile-displayphoto-shrink_400_400/0/1692827825796?e=1707955200&v=beta&t=Zf3lSg1NXGA9fJvWk5kT_oSGvp3tG69noOLfKxzgfC0',
+  "Kaia": 'https://media.licdn.com/dms/image/D4D35AQGKFKlhPOxKaQ/profile-framedphoto-shrink_400_400/0/1690328350248?e=1702821600&v=beta&t=MsDXtWqdoXpUdFsHCG5wW51DqBK2tU_Pv2OJqoZwmls'
 }
 
 
@@ -31,6 +33,7 @@ function About() {
   const [openModalAndrew, setOpenModalAndrew] = useState(false);
   const [openModalKaia, setOpenModalKaia] = useState(false);
   return (
+    
     <div>
       <section className="container about-page">
         <div className="aboutHeader">
@@ -122,10 +125,11 @@ function About() {
 
         <div className="fight-page-images">
           <div>
-            <img
+            <Image
               className="about-modal-image-button"
               onClick={() => setOpenModalBrent(true)}
               src={profilePicture.Brent}
+              roundedCircle
             />
             <AboutModalBrent
               open={openModalBrent}
@@ -134,22 +138,25 @@ function About() {
           </div>
 
           <div>
-            <img
-              className="about-modal-image-button"
-              onClick={() => setOpenModalAaron(true)}
+            <Image 
               src={profilePicture.Aaron}
-            />
+              roundedCircle
+              onClick={() => setOpenModalAaron(true)}
+              className="about-modal-image-button"
+               />
             <AboutModalAaron
               open={openModalAaron}
               close={() => setOpenModalAaron(false)}
             />
+
           </div>
 
           <div>
-            <img
+            <Image
               className="about-modal-image-button"
               onClick={() => setOpenModalBryan(true)}
               src={profilePicture.Bryan}
+              roundedCircle
             />
             <AboutModalBryan
               open={openModalBryan}
@@ -158,10 +165,11 @@ function About() {
           </div>
 
           <div>
-            <img
+            <Image
               className="about-modal-image-button"
               onClick={() => setOpenModalAndrew(true)}
               src={profilePicture.Andrew}
+              roundedCircle
             />
             <AboutModalAndrew
               open={openModalAndrew}
@@ -170,15 +178,17 @@ function About() {
           </div>
 
           <div>
-            <img
+            <Image
               className="about-modal-image-button"
               onClick={() => setOpenModalKaia(true)}
               src={profilePicture.Kaia}
+              roundedCircle
             />
             <AboutModalKaia
               open={openModalKaia}
               close={() => setOpenModalKaia(false)}
             />
+
           </div>
         </div>
       </section>

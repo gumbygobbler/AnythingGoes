@@ -597,6 +597,23 @@ footer{
     border-style: outset;
     border-width:5px;
     align-content: center;
+
+}
+
+.logout-modal-container {
+    max-width: 750px;
+    width: 25%;
+    height: 20%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    background-color: gray;
+    border-style: outset;
+    border-width:5px;
+    align-content: center;
+
 }
 
 .modal-admin-description {
@@ -611,6 +628,24 @@ footer{
     align-items: center;
     justify-content: center;
 }
+
+.overlay {
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    z-index: 1;
+}
+
+.return-to-home-button {
+    left:50%;
+    margin: auto;
+
+
+}
+
 
 .logoContainer {
     background-color: black;
@@ -671,6 +706,7 @@ footer{
     
     }
   
+<<<<<<< HEAD
   
     .rightFight img {
         margin-top: 20%; 
@@ -681,6 +717,18 @@ footer{
         animation-duration: 2.3s;
         animation-name: slideinRight;
         display: flex;
+=======
+.rightFight img {
+    
+    margin-top: 80px;
+    margin-right: 15vh;
+    height:420px;
+    width:420px;
+    padding-right: 60px;
+    
+    animation-duration: 1.5s;
+    animation-name: slideinRight;
+>>>>>>> a209749055ff5ad018414530bfce32462d402f3d
     }
     
     @media (max-width: 1300px) {
@@ -765,4 +813,16 @@ footer{
     color: white;
   }
 
+<<<<<<< HEAD
+=======
+.smallLogo img {
+    width: 110px;
+    height: 60px;
+    margin-left: 30px;
+    padding-bottom: 5px;
+
+  }
+
+
+>>>>>>> a209749055ff5ad018414530bfce32462d402f3d
      
