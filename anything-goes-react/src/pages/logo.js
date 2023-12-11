@@ -64,7 +64,10 @@ const Logo = () => {
       </div>
 
       <div>
-        <button className = "newFightLogoBtn" onClick={handleChangeImage}>Regenerate Random Fight</button>
+        <button className = "newFightLogoBtn" 
+                onClick={handleChangeImage}
+                key = {animationKey}>
+          Regenerate Random Fight</button>
       </div>
 
       <div className="rightFight">
