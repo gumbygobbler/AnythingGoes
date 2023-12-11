@@ -5,7 +5,7 @@ import { Button, Container } from "react-bootstrap";
 import AuthContext from "../context/AuthContext";
 import "./pages.css";
 
-function Login() {
+function Support() {
   let { loginUser } = useContext(AuthContext);
 
   const [values, setValues] = useState({
@@ -129,5 +129,5 @@ function Login() {
   );
 }
 
-export default Login;
+export default Support;
 

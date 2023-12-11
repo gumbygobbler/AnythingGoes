@@ -1,0 +1,47 @@
+.bgfield[type=text] {
+    background-color: transparent;
+    outline: 0px solid;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    outline: 0px;
+    border: 0px;
+    border-bottom: 3px solid #3c3c3c;
+    color: lightgray;
+    background-image: url(https://cdn.discordapp.com/attachments/443518880497926154/1183831504753799258/USERimg.png?ex=6589c401&is=65774f01&hm=531653746acbe314a0502211e258103e550e5084aa7b8b18bcd79a944e29db6f&);
+    background-position: 5px 15px;
+    background-repeat: no-repeat;
+    padding-left: 45px;
+    background-size: 30px;
+}
+
+.bgfield[type=password] {
+    background-color: transparent;
+    outline: 0px solid;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    outline: 0px;
+    border: 0px;
+    border-bottom: 3px solid #3c3c3c;
+    color: lightgray;
+    background-image: url(https://cdn.discordapp.com/attachments/443518880497926154/1183832189360685056/password-180.png?ex=6589c4a4&is=65774fa4&hm=7aff55893716a50b00a4f77c2e8efdaa3500f3bbf32a555100aed87d3a1c7b70&);
+    background-position: 5px 15px;
+    background-repeat: no-repeat;
+    padding-left: 45px;
+    background-size: 30px;
+}
+
+.bgfield:focus { 
+    outline: none;
+    border-color: #c9a7d5;
+    
+    color: lightgray;
+}
+
+.bgfield:active {
+    color: lightgray;
+}
+
+
+
+
+
