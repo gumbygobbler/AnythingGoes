@@ -1,5 +1,5 @@
 import "./styles.css";
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.css";
@@ -17,13 +17,14 @@ import AddFight from "./pages/AddFight";
 import Fighter from "./pages/Fighter";
 import Fight from "./pages/Fight";
 import NoPage from "./pages/NoPage";
-import Logo from "./pages/logo";
+import Logo from "./pages/Logo";
 
 import PrivateRoute from "./utils/PrivateRoute";
 
 import { AuthProvider } from "./context/AuthContext";
 
 function App() {
+  const [openModalLogout, setOpenModalLogout] = useState(false);
   return (
     <div className="App">
       <BrowserRouter>

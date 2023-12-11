@@ -83,6 +83,7 @@ body{
     border-radius: 5px;
 }
 
+
 header{
     position:relative;
     color: rgb(200, 200, 200);
@@ -91,9 +92,40 @@ header{
     width: 100%;
     padding: 10px 10px 5px 10px;
     margin: 0;
-    background-color: rgb(90, 30, 130);
+    /* background-color: rgb(90, 30, 130); */
+    background-image: url(./pattern.jpg);
+    background-size: 250px;
+    background-repeat: repeat;
+    color: transparent;
     font-size: 30px;
 }
+
+.header-container{
+    position: relative;
+    color: rgb(200, 200, 200);
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    background-color: rgb(90, 30, 130);
+    font-size: 30px;
+    text-align: center; /* Center text within the header */
+}
+
+.siteTitle{ 
+    font-family: cursive;
+    font-size: 60px; /* Adjust as needed */
+    color: #b88ec3;
+    margin: 0;   
+    padding-left: 50px;
+    text-shadow: 0px 4px 10px rgba(179, 147, 211, 0.8);
+}
+
+
+.smallLogo {
+    display: flex;
+    align-items: center;
+  };
+    
 
 .home-title{
     color: rgb(200,200,200);
@@ -106,28 +138,41 @@ nav{
     position:relative;
     top: 0;
     width: 100%;
-    background-color: rgb(40, 40, 40);
+    /* background-color: rgb(40, 40, 40); */
     border-radius: 2px;
     padding: 10px;
     display: grid;
     grid-template-columns: 100px 100px 1fr 100px 100px;
+    background-image: url(./navBarPattern.png);
+    background-size: 250px;
+    background-repeat: repeat;
+    color: transparent;
 }
+    
 
 .general-button{
     font-size: 16px;
-    background-color: rgb(100, 100, 100);
+    /* background-color: rgb(40, 40, 40); */
+    background-image: url(./navBarPattern.png);
+    background-size: 250px;
+    background-repeat: repeat;
+    color: transparent;
     color: rgb(200,200,200);
+    text-shadow: 0px 4px 10px rgba(179, 147, 211, 0.8);
     border: none;
     border-radius: 4px;
     padding: 5px 10px;
     margin: 2px 10px;
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s;
+    display: flex;
 }
 
+
+
 .general-button:hover{
-    background-color: white;
-    color: rgb(90,30,130);
+    /* background-color: white; */
+    color: #a569bb;
 }
 
 .login-button{
@@ -490,11 +535,13 @@ footer{
     margin-top: 10px;
     font-weight: 700;
     color: #c9a7d5;
+    text-shadow: 3px 4px 10px rgba(179, 147, 211, 0.8);
 }
 
 .aboutHeader p{
     font-weight: normal;
     font-weight: 100;
+    text-shadow: 0px 4px 10px rgba(179, 147, 211, 0.8);
 }
 
 .elementIcon{
@@ -550,6 +597,23 @@ footer{
     border-style: outset;
     border-width:5px;
     align-content: center;
+
+}
+
+.logout-modal-container {
+    max-width: 750px;
+    width: 25%;
+    height: 20%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    background-color: gray;
+    border-style: outset;
+    border-width:5px;
+    align-content: center;
+
 }
 
 .modal-admin-description {
@@ -565,33 +629,65 @@ footer{
     justify-content: center;
 }
 
+.overlay {
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    z-index: 1;
+}
+
+.return-to-home-button {
+    left:50%;
+    margin: auto;
+
+
+}
+
+
 .logoContainer {
     background-color: black;
     display: flex;
     background-image: url("./full1.png");
     background-repeat: no-repeat;
-    background-size: 1500px;
-    background-position: center;
-    width: 100%;
-    height: 750px;
+    background-size: cover;
+    background-position: center center;
+    width: 98.5vw; 
+    height: 100vh; 
+    transition: .1s;
+    animation-name: fade;
    }
    
-   .leftFight img {
-    margin-top: 240px;
-    margin-left: 10px;
-    height:370px;
-    width:500px;
-  
-    animation-duration: 2.3s;
-    animation-name: slideinLeft;
+
+
+    .leftFight img {
+        margin-top: 27%; 
+        margin-left: 43%; 
+        max-width: 420px; 
+        height: 420px;
+        animation-duration: 2.3s;
+        animation-name: slideinLeft;
+        display: flex;
+    }
+    
+    @media (max-width: 1100px) {
+        /* Adjust styles for smaller screens */
+        .leftFight img {
+            margin-top: 90%; 
+            margin-left: 50%;
+            max-width: 50%;
+            height: auto;
+        }
     }
    
     .leftFight img:hover {
-      height:420px;
-      width:540px;
-      transition: 1s;
-      margin-left: 90px;
-      margin-top: 210px; 
+        margin-top: 22%; 
+        margin-left: 37%; 
+        max-width: 470px; 
+        height: 470px;
+        transition: 3s;
     }
   
     @keyframes slideinLeft {
@@ -602,35 +698,56 @@ footer{
       }
     
       to {
-        margin-top: 240px;
-        margin-left: 120px;
-        width: 500px;
-        height: 370px;
+        margin-top: 27%; 
+        margin-left: 43%; 
+        max-width: 420px; 
+        height: 420px;
       }
     
     }
   
-   .rightFight img {
+<<<<<<< HEAD
+  
+    .rightFight img {
+        margin-top: 20%; 
+        margin-left: 37%; 
+        max-width: 420px; 
+        height: 420px;
+        
+        animation-duration: 2.3s;
+        animation-name: slideinRight;
+        display: flex;
+=======
+.rightFight img {
     
-    margin-top: 100px;
-    margin-left: 30px;
-    height:390px;
+    margin-top: 80px;
+    margin-right: 15vh;
+    height:420px;
     width:420px;
     padding-right: 60px;
     
     animation-duration: 1.5s;
     animation-name: slideinRight;
+>>>>>>> a209749055ff5ad018414530bfce32462d402f3d
     }
-  
-    .rightFight img:hover {
-      height:420px;
-      width:470px;
-      transition: 1s;
-      margin-top: 70px;
-      margin-left: 20px;
-  
+    
+    @media (max-width: 1300px) {
+        /* Adjust styles for smaller screens */
+        .rightFight img {
+            margin-top: 40%; 
+            margin-left: 30%;
+            max-width: 50%;
+            height: auto;
+        }
     }
    
+    .rightFight img:hover {
+        margin-top: 15%; 
+        margin-left: 31%; 
+        max-width: 470px; 
+        height: 470px;
+        transition: 3s;
+    }
     @keyframes slideinRight {
       from {
         margin-left: 2000px;
@@ -639,65 +756,73 @@ footer{
       }
    
       to {
-        margin-top: 100px;
-        margin-left: 50px;
-        height:390px;
-        width:420px;
+        margin-top: 20%; 
+        margin-left: 37%; 
+        max-width: 420px; 
+        height: 420px;
       }
    
   }
   
   
   
-  .backToHomeBtn {
+  .newFightLogoBtn {
     background-color: rgb(255, 255, 255);
-    animation-duration: 5s;
-    animation-name: slideinDown;
+    animation-duration: 3.5s;
+    animation-name: slideInDown;
     width: 190px;
     height: 70px;
     /* position:relative; */
     margin-top: 620px;
-    margin-left: 80px;
+    margin-left: 150px;
+
     font-weight: 500px;
-    font-size: 25px;
+    font-size: 20px;
     border-radius: 1.59rem;
     color:rgb(112, 18, 201);
     border-color: rgb(112, 18, 201);
     opacity: 0.6;
-  
+    display: flex;
   
   }
+
   
-  @keyframes slideinDown {
+  @keyframes slideInDown {
     from {
       margin-top: 2000px;
       padding-left: 700px;
       width: 1px;
       height: 1px;
+
     }
   
     to {
       /* position: reletive; */
-      margin-top: 620px;
-      margin-left: 80px;
-      width: 190px;
-      height: 70px;
+        margin-top: 620px;
+        margin-left: 150px;
+        width: 190px;
+        height: 70px;
     }
   
   }
    
-  .backToHomeBtn:hover {
+  .newFightLogoBtn:hover {
     opacity: 1;
     border-color: black;
     background-color: rgb(112, 18, 201);
     color: white;
   }
 
-  .smallLogo img {
+<<<<<<< HEAD
+=======
+.smallLogo img {
     width: 110px;
     height: 60px;
     margin-left: 30px;
     padding-bottom: 5px;
 
   }
+
+
+>>>>>>> a209749055ff5ad018414530bfce32462d402f3d
      
