@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem("authTokens", JSON.stringify(data));
       localStorage.setItem("Username", user);
       console.log("decoded data: ", user);
-      // navigate("/home");
+      navigate("/home");
     } else {
       alert("Someting Wong");
     }

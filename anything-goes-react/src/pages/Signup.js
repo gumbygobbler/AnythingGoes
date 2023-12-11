@@ -2,14 +2,24 @@ import Validation from "../components/Validation"; //validation
 import React, { useEffect, useState, useContext } from "react";
 import FormData from "form-data";
 
-import AuthContext from "../context/AuthContext";
+//import AuthContext from "../context/AuthContext";
+import { jwtDecode } from "jwt-decode";
 
 import { Link, Navigate } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
 
 function Signup() {
-  let { user, loginUser } = useContext(AuthContext);
+  let [user, setUser] = useState(() =>
+    localStorage.getItem("authTokens")
+      ? jwtDecode(localStorage.getItem("authTokens"))
+      : null
+  );
+  let [authTokens, setAuthTokens] = useState(() =>
+    localStorage.getItem("authTokens")
+      ? JSON.parse(localStorage.getItem("authTokens"))
+      : null
+  );
 
   const [values, setValues] = useState({
     username: "",
@@ -17,8 +27,7 @@ function Signup() {
     password2: "",
   });
 
-  const [userId, setUserId] = useState(null);
-
+  const [userId, setUserId] = useState(0);
   const [errors, setErrors] = useState({});
 
   function handleChange(event) {
@@ -38,7 +47,7 @@ function Signup() {
       newUserData.append("password2", values.password2);
 
       const newManagerData = new FormData();
-      newManagerData.append("name", values.name);
+      newManagerData.append("name", values.username);
 
       console.log(values.name);
       //POST for User Data
@@ -47,17 +56,53 @@ function Signup() {
           method: "POST",
           body: newUserData,
         })
-          .then((res) => {
-            console.log(res);
+          .then((response) => {
+            console.log(response);
             // Assuming loginUser and setUserId return promises
-            return Promise.all(
-              [loginUser(event), setUserId(user.user_id)],
-              newManagerData.append("userId", user.user_id)
+            return response.json();
+          })
+          // .then((userData) => {
+          //   console.log("User data: ", userData);
+          //   return Promise.all([
+          //     setUserId(userData),
+          //     newManagerData.append("userId", userId.userId),
+          //   ]);
+          // })
+          .then(async (event) => {
+            // console.log("Form Submitted");
+            let responseLogin = await fetch(
+              "http://127.0.0.1:8000/api/token/",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  username: values.username,
+                  password: values.password,
+                }),
+              }
             );
+            let data = await responseLogin.json();
+            console.log("data: ", data);
+            console.log("response: ", responseLogin);
+            if ((await responseLogin.status) === 200) {
+              setAuthTokens(data);
+              const decodedData = jwtDecode(data.access);
+              setUser(decodedData);
+              localStorage.setItem("authTokens", JSON.stringify(data));
+              localStorage.setItem("Username", user);
+              console.log("decoded data: ", user);
+            } else {
+              alert("Failed to fetch user data");
+            }
           })
           .then(() => {
-            // This block will be executed after loginUser and setUserId are complete
-            console.log("User registration, login, and ID setting complete");
+            setUserId(user.user_id);
+            newManagerData.append("userId", user.user_id);
+            for (const pair of newManagerData.entries()) {
+              console.log(pair[0] + "," + pair[1]);
+            }
           })
           .then((secondResponse) => {
             try {

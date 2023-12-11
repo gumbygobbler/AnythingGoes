@@ -8,29 +8,61 @@ import { Navigate } from "react-router-dom";
 let fighterURL = "";
 
 function InputBox() {
+  const [currentFighter, setCurrentFighter] = useState([]);
+  const [secondFighter, setSecondFighter] = useState([]);
   const [fighterImage, setFighterImage] = useState();
-  const [fighter, setFighter] = useState({});
-  const [fightData, setFightData] = useState({
-    fighterName: "",
-    fighterImage: "",
-  });
+  const [fighter, setFighter] = useState();
+  const [fighterData, setFighterData] = useState([]);
 
   let { user } = useContext(AuthContext);
 
-  function GenerateFight(fighter1Id) {
+  function GenerateFight() {
     //GET fighters and check length of the array
     //If 0, then do nothing and send to page saying there's no other fighters
     //Else, get a random id from the length of fighters and POST a fight with both IDs
     //Return to home after this
-    console.log("Fight Generated with id as fighterId1: ", fighter1Id);
+    console.log("Fight Generating");
 
     //Fetch the fights data
-    const response = fetch("http://localhost:8000/fights")
+    //Fight ID 5 is our IDLE Fight
+    const response = fetch("http://localhost:8000/fighters/fights/" + 5)
       .then((response) => response.json())
-      .then((data) => setFightData(data))
+      .then((data) => setFighterData(data))
+      .then(console.log("GET Fight Data: ", fighterData.length))
+      .then(() => {
+        if (fighterData.length < 2) {
+          console.log("Do nothing");
+          //Do nothing if there are not enough fighters
+          return;
+        } else {
+          try {
+            fetch(
+              //GET Current Fighter Data
+              "http://localhost:8000/fighters/current-fighter/" + user.user_id
+            )
+              .then((response) => response.json())
+              .then((data) => setCurrentFighter(data))
+              .then((response) => {
+                //GET Second Fighter Data
+                fetch(
+                  "http://localhost:8000/fighters/second-fighter/" +
+                    user.user_id
+                )
+                  .then((response) => response.json())
+                  .then((data) => setSecondFighter(data))
+                  .then(() => {
+                    //POST a new fight
+                    //GET that new fight and get the id
+                    //PUT that new fight id into current fighter
+                    //PUU that new fight id into second fighter
+                  });
+              });
+          } catch (error) {
+            console.error("Error trying to select fighters");
+          }
+        }
+      })
       .catch((error) => console.error("Error fetching fights data:", error));
-
-    console.log("GET Fight Data: ", fightData.length);
   }
 
   const handleSubmit = (e) => {
@@ -57,15 +89,18 @@ function InputBox() {
         .then((data) => {
           newFighterData.append("manager", data.id);
           try {
+            //POST new fighter data
             const response = fetch(
               "http://localhost:8000/fighters/" + user.user_id,
               {
                 method: "POST",
                 body: newFighterData,
               }
-            ).then((res) => console.log(res));
-            console.log(response);
-            //const createdFight = response.json();
+            )
+              .then((response) => {
+                console.log(response);
+              })
+              .then(GenerateFight());
           } catch (error) {
             console.error("Error adding new fighter data:", error);
           }
@@ -89,7 +124,7 @@ function InputBox() {
   // };
 
   function handleChange(e) {
-    console.log(user.user_id);
+    console.log(user.use_id);
     if (e.target.files[0] != null) setFighterImage(e.target.files[0]);
     fighterURL = URL.createObjectURL(e.target.files[0]);
   }
