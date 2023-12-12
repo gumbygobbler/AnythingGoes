@@ -1,6 +1,7 @@
 import Validation from "../components/Validation"; //validation
 import React, {useEffect, useState} from "react";
 import FormData from  'form-data'
+import "./pages.css";
 
 import { useNavigate } from "react-router-dom";
 
@@ -68,32 +69,43 @@ function Signup() {
   return (
     <div style={{ height: "100vh" }}>
       <form onSubmit={HandleSubmit}>
-        <div
-          className="container login-box d-flex flex-column justify-content-center mt-5"
-          style={{ justifyContent: "center" }}
-        >
-          <div className=" d-flex flex-column justify-content-center">
+      <div className="container border border-white login-box d-flex flex-column justify-content-center mt-5 w-50 text-white ">
+          
+      <div className=" d-flex flex-column justify-content-center">
+            <br></br>
+            
             <label
               style={{
+                color: "#c9a7d5",
                 textAlign: "center",
-                fontSize: "24px",
+                fontSize: "60px",
+                justifyContent: "center",
+                fontWeight: "bold", 
+                textShadow: "0px 2px 6px rgba(179, 147, 211, 0.8)"
+                
               }}
             >
-              Username
+              
+              Anything Goes Registration
             </label>
             <br />
+            <br />
+            <br></br>
             <input
-              className="login-entry mt-1"
+              className="bgfield"          
               type="text"
               placeholder="Enter Username"
               name="name"
               value={values.name}
               onChange={handleChange}
+              width="100%"
             ></input>
-            {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
+            {errors.name && <p style={{ color: "#ff3333" }}>{errors.name}</p>}
           </div>
-          <div className="mt-4 d-flex flex-column justify-content-center">
-            <label
+          <div style={{height: "4px"}}></div>
+          <div className=" d-flex flex-column justify-content-center">
+          
+            {/* <label
               className="text-center"
               style={{
                 fontSize: "24px",
@@ -101,46 +113,54 @@ function Signup() {
             >
               Password
             </label>
-            <br />
+            <br /> */}
             <input
-              className="login-entry mt-1"
+              className="bgfield"
               type="password"
               placeholder="Enter Password"
               name="password"
               value={values.password}
               onChange={handleChange}
+              width="100%"
             ></input>
             {errors.password && (
-              <p style={{ color: "red" }}>{errors.password}</p>
+              <p style={{ color: "#ff3333" }}>{errors.password}</p>
             )}
-            <br />
+            <div style={{height: "4px"}}></div>
             <input
-              className="login-entry mt-1"
+              className="bgfield"
               type="password"
               placeholder="Enter Password Again"
               name="password2"
               value={values.password2}
               onChange={handleChange}
+              width="100%"
             ></input>
             {errors.password2 && (
-              <p style={{ color: "red" }}>{errors.password2}</p>
+              <p style={{ color: "#ff3333" }}>{errors.password2}</p>
             )}
           </div>
           <div className="d-flex justify-content-center">
-            <Button
-              className="login-button mt-5 mb-2"
-              type="submit"
-              variant="outline-light"
-            >
+          <Button style={{padding: "15px", 
+                          color: "#c9a7d5", 
+                          fontWeight: "bold", 
+                          fontSize: "20px",
+                          textShadow: "0px 1px 3px rgba(179, 147, 211, 0.8)"}} 
+                          type="submit" 
+                          variant="outline-light" 
+                          className="my-3 w-100">
               Sign Up
             </Button>
           </div>
           {/* //ButtonLink to="/home" classes="general-button"Login/ButtonLink */}
-        </div>
-        <div className="container" style={{ justifyContent: "center" }}>
-          <span className="psw">
-            Returning User?<a href="/Signup">Login!</a>
-          </span>
+              
+          <br>
+          </br>
+          <br />
+
+          <span style={{textAlign: "center", color: "lightgray"}}>
+            Returning User? <a style={{color: "#c9a7d5", textShadow: "0px 1px 3px rgba(179, 147, 211, 0.8)"}} href="/Login">Login!</a></span>
+          
         </div>
       </form>
     </div>

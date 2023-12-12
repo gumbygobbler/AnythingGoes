@@ -20,7 +20,7 @@ const NavBar = () => {
     <div>
       <LogoutModal open = {openModalLogout}/>
       <nav>
-        <ButtonLink to="/home" classes="general-button">
+        <ButtonLink to="/home" classes="navbar-button">
         <FontAwesomeIcon
               icon={faHouse}
               style={{
@@ -33,7 +33,7 @@ const NavBar = () => {
             />
           Home
         </ButtonLink>
-        <ButtonLink to="/about" classes="general-button">
+        <ButtonLink to="/about" classes="navbar-button">
         <FontAwesomeIcon
               icon={faInfoCircle}
               style={{
@@ -50,14 +50,14 @@ const NavBar = () => {
           <>
             <p>User: {user.username}</p>
             <button
-              className="general-button"
+              className="navbar-button"
               onClick={logoutUser}
             >
               Logout
             </button>
           </>
         ) : (
-          <ButtonLink to="/login" classes="general-button">
+          <ButtonLink to="/login" classes="navbar-button">
             <FontAwesomeIcon
               icon={faCircleUser}
               style={{

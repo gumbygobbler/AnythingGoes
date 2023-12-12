@@ -45,17 +45,18 @@ import ap from './logoImages/42.png';
 import aq from './logoImages/43.png';
 import ar from './logoImages/44.png';
 import at from './logoImages/45.png';
+import au from './logoImages/46.png';
 import { useState } from 'react';
 
 
 
 const Logo = () => {
   const images = [
-    a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, at
+    a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, at, au
   ];
 
-  const [currentLeftImage, setcurrentLeftImage] = useState(images[0]);
-  const [currentRightImage, setcurrentRightImage] = useState(images[1]);
+  const [currentLeftImage, setcurrentLeftImage] = useState(images[28]);
+  const [currentRightImage, setcurrentRightImage] = useState(images[45]);
   const [animationKey, setAnimationKey] = useState(0);
 
   // Function to handle image change on click
