@@ -7,11 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleUser,
   faHouse,
-  faInfoCircle,
-  faRobot,
+  faInfoCircle
 } from "@fortawesome/free-solid-svg-icons";
 
-import LogoutModal from "./LogoutModal";
 
 const NavBar = () => {
   let { user, logoutUser } = useContext(AuthContext);
@@ -22,10 +20,20 @@ const NavBar = () => {
     <div>
       <LogoutModal open = {openModalLogout}/>
       <nav>
-        <ButtonLink classes="general-button">
+        <ButtonLink to="/home" classes="navbar-button">
+        <FontAwesomeIcon
+              icon={faHouse}
+              style={{
+                fontSize: "20px",
+                marginRight: "1px",
+                padding: "3px",
+                paddingTop: "0px",
+                color: "rgb(130, 39, 163)"
+              }}
+            />
           Home
         </ButtonLink>
-        <ButtonLink to="/about" classes="general-button">
+        <ButtonLink to="/about" classes="navbar-button">
         <FontAwesomeIcon
               icon={faInfoCircle}
               style={{
@@ -41,14 +49,15 @@ const NavBar = () => {
         {user ? (
           <>
             <p>User: {user.username}</p>
-            <button onClick = {() => setOpenModalLogout(true)}
+            <button
+              className="navbar-button"
               onClick={logoutUser}
             >
               Logout
             </button>
           </>
         ) : (
-          <ButtonLink to="/login" classes="general-button">
+          <ButtonLink to="/login" classes="navbar-button">
             <FontAwesomeIcon
               icon={faCircleUser}
               style={{

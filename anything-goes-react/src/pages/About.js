@@ -77,7 +77,7 @@ function About() {
                 favorite “fighters” (in the form of any image from your gallery)
                 to brawl against users all around the web. As this entertainment
                 happens in real-time, the users watching will decide the winners
-                by votes on the match floor.{" "}
+                by voting on the match floor.{" "}
               </p>
             </div>
           </div>

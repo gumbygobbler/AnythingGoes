@@ -25,17 +25,38 @@ import v from './logoImages/22.png';
 import w from './logoImages/23.png';
 import x from './logoImages/24.png';
 import y from './logoImages/25.png';
+import z from './logoImages/26.png';
+import aa from './logoImages/27.png';
+import ab from './logoImages/28.png';
+import ac from './logoImages/29.png';
+import ad from './logoImages/30.png';
+import ae from './logoImages/31.png';
+import af from './logoImages/32.png';
+import ag from './logoImages/33.png';
+import ah from './logoImages/34.png';
+import ai from './logoImages/35.png';
+import aj from './logoImages/36.png';
+import ak from './logoImages/37.png';
+import al from './logoImages/38.png';
+import am from './logoImages/39.png';
+import an from './logoImages/40.png';
+import ao from './logoImages/41.png';
+import ap from './logoImages/42.png';
+import aq from './logoImages/43.png';
+import ar from './logoImages/44.png';
+import at from './logoImages/45.png';
+import au from './logoImages/46.png';
 import { useState } from 'react';
 
 
 
 const Logo = () => {
   const images = [
-    a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y
+    a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, at, au
   ];
 
-  const [currentLeftImage, setcurrentLeftImage] = useState(images[0]);
-  const [currentRightImage, setcurrentRightImage] = useState(images[1]);
+  const [currentLeftImage, setcurrentLeftImage] = useState(images[28]);
+  const [currentRightImage, setcurrentRightImage] = useState(images[45]);
   const [animationKey, setAnimationKey] = useState(0);
 
   // Function to handle image change on click

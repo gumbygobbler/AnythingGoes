@@ -80,7 +80,8 @@ function Signup() {
                 textAlign: "center",
                 fontSize: "60px",
                 justifyContent: "center",
-                fontWeight: "bold"
+                fontWeight: "bold", 
+                textShadow: "0px 2px 6px rgba(179, 147, 211, 0.8)"
                 
               }}
             >
@@ -140,7 +141,14 @@ function Signup() {
             )}
           </div>
           <div className="d-flex justify-content-center">
-          <Button style={{padding: "15px", color: "#c9a7d5", fontWeight: "bold", fontSize: "20px"}} type="submit" variant="outline-light" className="my-3 w-100">
+          <Button style={{padding: "15px", 
+                          color: "#c9a7d5", 
+                          fontWeight: "bold", 
+                          fontSize: "20px",
+                          textShadow: "0px 1px 3px rgba(179, 147, 211, 0.8)"}} 
+                          type="submit" 
+                          variant="outline-light" 
+                          className="my-3 w-100">
               Sign Up
             </Button>
           </div>
@@ -151,7 +159,7 @@ function Signup() {
           <br />
 
           <span style={{textAlign: "center", color: "lightgray"}}>
-            Returning User? <a style={{color: "#c9a7d5"}} href="/Login">Login!</a></span>
+            Returning User? <a style={{color: "#c9a7d5", textShadow: "0px 1px 3px rgba(179, 147, 211, 0.8)"}} href="/Login">Login!</a></span>
           
         </div>
       </form>
