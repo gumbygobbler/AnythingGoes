@@ -110,7 +110,7 @@ function Login() {
           </div>
           
           <div className="d-flex justify-content-center">
-            <Button className = "login-btn" style={{padding: "15px", 
+            <Button style={{padding: "15px", 
                             color: "#c9a7d5", 
                             fontWeight: "bold", 
                             fontSize: "20px",

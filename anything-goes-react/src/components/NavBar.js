@@ -48,7 +48,7 @@ const NavBar = () => {
         <br />
         {user ? (
           <>
-            <p>User: {user.username}</p>
+            <p syle = {{color: "rgb(200,200,200)",  fontSize: "16px"}}>User: {user.username}</p>
             <button className="navbar-button" onClick={logoutUser}>
               Logout
             </button>
