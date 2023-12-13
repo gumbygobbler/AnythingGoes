@@ -29,7 +29,8 @@ const HomeVisitor = () => {
   }, []);
 
   return (
-    <div className="mt-3 mb-4 border-0 home">
+    <div className="mt-3 mb-4 border-0" style={{ height: "100%", textShadow: "0px 4px 10px rgba(179, 147, 211, 0.8)"}}>
+
       <h2>Home</h2>
       <hr />
       <h3>Your Fighters</h3>
