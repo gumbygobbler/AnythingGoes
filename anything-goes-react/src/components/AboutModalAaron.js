@@ -1,9 +1,10 @@
 import React from 'react'
+import Image from 'react-bootstrap/Image';
 
 const Aaron = {
     "name": "Aaron",
     "description": "I am Aaron. One of the developers of Anything Goes. I have a larger brain and a ginourmous IQ.",
-    "picture": 'https://media.discordapp.net/attachments/1169434139771019347/1180957688818049084/IMG_8057.png?ex=657f4f8e&is=656cda8e&hm=2da15627e28be3b699750aca194694f9407bb05f735b9e59595d71c978d12bdb&=&width=557&height=670'
+    "picture": 'https://media.licdn.com/dms/image/C4D03AQFXKNNz0EvbqQ/profile-displayphoto-shrink_400_400/0/1620264094067?e=1707955200&v=beta&t=Y69vwm2zSVlLhKIzX5_Cik2RCp7SFE0vu2qN5UE71Vo'
   }
 
 const AboutModalAaron = ({open,close}) => {
@@ -12,18 +13,19 @@ const AboutModalAaron = ({open,close}) => {
 
     return (
 
-
+        <div className = "overlay">
         <div className = 'modal-container' onClick = {close}>
-
+            
             <div className="modal-text-container">
 
                 <h2 className='modal-admin-name'> {Aaron.name} </h2>
-                <center><img src={Aaron.picture} style={{width:'30%'}}/></center>
+                <center><Image roundedCircle src={Aaron.picture} style={{width:'30%'}}/></center>
                 <p className='modal-admin-description'>{Aaron.description}</p>
 
             </div>
         
 
+        </div>
         </div>
 
     )

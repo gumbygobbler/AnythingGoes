@@ -7,10 +7,12 @@ import smallLogo from "../smallLogo.png"
 const Header = () => {
   return (
     <div>
-      <header>
+      <header className = "headerContainer">
         <Link style={{ textDecoration: "none" }} to="/logo">
           <div className = "smallLogo">
-          <img src = {smallLogo} alt = " "/>
+          <img src = {smallLogo} alt = " " style = {{height: "100px", width:"190px"}}/>
+          <h1 className = "siteTitle">
+              Anything Goes</h1>
           </div>
         </Link>
       </header>
