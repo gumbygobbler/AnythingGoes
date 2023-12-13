@@ -13,6 +13,12 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 
+
+#----------------------------------------------------------------------------------------------
+#                                   MANAGER VIEWS
+#----------------------------------------------------------------------------------------------
+
+
 @api_view(['GET', 'POST'])
 def manager_list(request, format=None, *args, **kwargs):
     #get all the drinks
@@ -32,7 +38,35 @@ def manager_list(request, format=None, *args, **kwargs):
                 return Response(context, status=status.HTTP_201_CREATED)
             except:
                 return Response({'error': 'Something went wrong'})
-            
+
+@api_view(['GET', 'PUT', 'DELETE'])
+def manager_detail(request, userId, format=None):
+
+    try:
+        managerData = manager.objects.get(userId = userId)
+    except manager.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    
+    if request.method == 'GET':
+        serializer = managerSerializer(managerData)
+        return Response(serializer.data)
+    elif request.method == 'PUT':
+        serializer = managerSerializer(managerData, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    elif request.method == 'DELETE':
+        managerData.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+#----------------------------------------------------------------------------------------------
+#                                   FIGHT VIEWS
+#----------------------------------------------------------------------------------------------
+
+
 @api_view(['GET', 'POST'])
 def fight_list(request, *args, **kwargs):
     if request.method == 'GET':
@@ -56,6 +90,34 @@ def fight_newFight(request, format=None, *args, **kwargs):
         mostRecentFight = fightData.order_by('id').last()
         serializer = fightSerializer(mostRecentFight)
         return Response(serializer.data, status=status.HTTP_200_OK)
+    
+@api_view(['GET', 'PUT', 'DELETE'])
+def fight_detail(request, fightId, format=None):
+
+    try:
+        fightData = fight.objects.get(pk=id)
+    except fight.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    
+    if request.method == 'GET':
+        serializer = fightSerializer(fightData)
+        return Response(serializer.data)
+    elif request.method == 'PUT':
+        serializer = fightSerializer(fightData, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    elif request.method == 'DELETE':
+        fightData.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
+
+#----------------------------------------------------------------------------------------------
+#                                   FIGHTER VIEWS
+#----------------------------------------------------------------------------------------------
+
 
 @api_view(['GET'])
 def fighter_list(request):
@@ -123,27 +185,6 @@ def fighter_secondFighter(request, user_id, format=None, *args, **kwargs):
     serializer = fighterSerializer(secondFighter)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
-@api_view(['GET', 'PUT', 'DELETE'])
-def manager_detail(request, userId, format=None):
-
-    try:
-        managerData = manager.objects.get(userId = userId)
-    except manager.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-    
-    if request.method == 'GET':
-        serializer = managerSerializer(managerData)
-        return Response(serializer.data)
-    elif request.method == 'PUT':
-        serializer = managerSerializer(managerData, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
-    elif request.method == 'DELETE':
-        managerData.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def fighter_detail(request, id, format=None):

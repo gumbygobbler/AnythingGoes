@@ -26,6 +26,11 @@ const HomeVisitor = () => {
       .then((data) => setFighters(data))
       .catch((error) => console.error("Error fetching fighter data:", error));
     console.log();
+
+    fetch("http://localhost:8000/fights")
+      .then((response) => response.json())
+      .then((data) => setFights(data))
+      .catch((error) => console.error("Error fetching fight data:", error))
   }, []);
 
   return (
@@ -68,8 +73,7 @@ const HomeVisitor = () => {
               key={fight.id}
               id={fight.id}
               name={fight.name}
-              text={fight.text}
-              link={fight.link}
+              text={"What more is there to say?"}
             />
           ))
         ) : (

@@ -34,6 +34,7 @@ urlpatterns = [
     
     path('fights/', views.fight_list),
     path('fights/new-fight/', views.fight_newFight),
+    path('fights/<int:fightId>', views.fight_detail),
     
     path('api/', include('authentification.api.urls')),
     path('api/user/', include('authentification.api.urls'))
