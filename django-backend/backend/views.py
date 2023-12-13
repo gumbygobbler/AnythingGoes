@@ -13,6 +13,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 
+from rest_framework.parsers import JSONParser 
+
 
 #----------------------------------------------------------------------------------------------
 #                                   MANAGER VIEWS
@@ -67,11 +69,19 @@ def manager_detail(request, userId, format=None):
 #----------------------------------------------------------------------------------------------
 
 
-@api_view(['GET', 'POST'])
+@api_view(['GET'])
 def fight_list(request, *args, **kwargs):
     if request.method == 'GET':
         fightData = fight.objects.all()
         serializer = fightSerializer(fightData, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+            
+@api_view(['GET', 'POST'])
+def fight_newFight(request, format=None, *args, **kwargs):
+    if request.method == 'GET':
+        fightData = fight.objects.all()
+        mostRecentFight = fightData.order_by('id').last()
+        serializer = fightSerializer(mostRecentFight)
         return Response(serializer.data, status=status.HTTP_200_OK)
     elif request.method == 'POST':
         serializer = fightSerializer(data = request.data)
@@ -82,14 +92,6 @@ def fight_list(request, *args, **kwargs):
                 return Response(context, status=status.HTTP_201_CREATED) 
             except:
                 return Response({'error': 'Something went wrong'})
-            
-@api_view(['GET', 'POST'])
-def fight_newFight(request, format=None, *args, **kwargs):
-    if request.method == 'GET':
-        fightData = fight.objects.all()
-        mostRecentFight = fightData.order_by('id').last()
-        serializer = fightSerializer(mostRecentFight)
-        return Response(serializer.data, status=status.HTTP_200_OK)
     
 @api_view(['GET', 'PUT', 'DELETE'])
 def fight_detail(request, fightId, format=None):
@@ -185,6 +187,20 @@ def fighter_secondFighter(request, user_id, format=None, *args, **kwargs):
     serializer = fighterSerializer(secondFighter)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
+@api_view(['PUT'])
+def fighter_update(request, id, format=None, *args, **kwargs):
+    
+    if request.method == 'PUT':
+        instance = fighter.objects.get(pk = id)
+        newData = JSONParser().parse(request)
+        
+        serializer = fighterSerializer(instance, newData)
+        if serializer.is_valid():
+            serializer.save()
+            context = {'data': serializer.data}
+            return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def fighter_detail(request, id, format=None):

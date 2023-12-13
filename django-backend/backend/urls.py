@@ -24,6 +24,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('fighters/', views.fighter_list),
+    path('fighters/update/<int:id>', views.fighter_detail),
     path('fighters/fights/<int:fight>', views.fighter_fight_list),
     path('fighters/<int:user_id>', views.fighter_manager_list),
     path('fighters/current-fighter/<int:user_id>', views.fighter_currentFighter),
