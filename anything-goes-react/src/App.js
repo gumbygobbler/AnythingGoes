@@ -19,7 +19,7 @@ import Fight from "./pages/Fight";
 import NoPage from "./pages/NoPage";
 
 import HomeVisitor from "./pages/HomeVisitor";
-import Logo from "./pages/Logo";
+import Logo from "./pages/logo";
 
 
 import PrivateRoute from "./utils/PrivateRoute";

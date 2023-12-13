@@ -15,7 +15,6 @@ const FighterCard = ({ id, name, fighterImg, manager }) => {
   const fighterName = name;
   let fighterImagePath = fighterImg;
   const fighterManager = manager;
-
   // fighterImagePath = "django-backend/backend" + fighterImagePath;
   // console.log(id, name, imagepath);
   return (
