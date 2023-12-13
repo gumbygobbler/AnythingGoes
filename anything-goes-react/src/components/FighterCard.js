@@ -13,8 +13,9 @@ const defaultImage = "/no-img.png";
 const FighterCard = ({ id, name, fighterImg, manager }) => {
   const fighterId = id;
   const fighterName = name;
-  const fighterImagePath = fighterImg;
+  let fighterImagePath = fighterImg;
   const fighterManager = manager;
+  // fighterImagePath = "django-backend/backend" + fighterImagePath;
   // console.log(id, name, imagepath);
   return (
     <div>
@@ -33,7 +34,7 @@ const FighterCard = ({ id, name, fighterImg, manager }) => {
           <Card.Img
             className="card-image"
             variant="top"
-            src={fighterImg || defaultImage}
+            src={fighterImagePath}
           />
           <hr />
         </Card.Body>

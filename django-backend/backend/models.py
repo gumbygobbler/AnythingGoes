@@ -3,27 +3,11 @@ from django.contrib.auth.models import User
 
 def upload_to(instance, filename) :
     return 'fighters/{filename}'.format(filename=filename)
-
-class fight(models.Model):
-    name = models.CharField(max_length = 400)
-    
-    # participant1 = models.OneToOneField(
-    #     manager,
-    #     on_delete=models.CASCADE,
-    
-    
-    # participant2 = models.OneToOneField(
-    #     manager,
-    #     on_delete=models.CASCADE,
-    # )
-
-    def __str__(self):
-        return self.name    
     
 class manager(models.Model):
     name = models.CharField(max_length = 200)
     
-    userID = models.OneToOneField(
+    userId = models.OneToOneField(
         User, 
         on_delete=models.CASCADE,
     )
@@ -37,7 +21,14 @@ class manager(models.Model):
     def __str__(self):
         return self.name
     
-
+class fight(models.Model):
+    name = models.CharField(max_length = 400)
+    
+    voteCount1 = models.PositiveIntegerField(default = 0)
+    voteCount2 = models.PositiveIntegerField(default = 0)
+    
+    def __str__(self):
+        return self.name    
 
 class fighter(models.Model):
     name = models.CharField(max_length = 200)
@@ -50,10 +41,8 @@ class fighter(models.Model):
     )
     
     fight = models.ForeignKey(
-        fight,
+        fight, 
         on_delete=models.CASCADE,
-        blank = True,
-        #default=-1
     )
 
     #manager = models.CharField(max_length = 200)
@@ -61,3 +50,4 @@ class fighter(models.Model):
 
     def __str__(self):
         return self.name    
+    

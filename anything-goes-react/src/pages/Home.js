@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 
+import "../styles.css";
+
 import FightGrid from "../components/FightGrid";
 import FighterGrid from "../components/FighterGrid";
 import FightCard from "../components/FightCard";
@@ -8,26 +10,32 @@ import FighterCard from "../components/FighterCard";
 import AddCard from "../components/AddCard";
 import AuthContext from "../context/AuthContext";
 
-const Home = () => {
+const HomeVisitor = () => {
   const [fights, setFights] = useState([]);
   const [fighters, setFighters] = useState([]);
 
   let { user } = useContext(AuthContext);
-
   useEffect(() => {
-    fetch("http://localhost:8000/fights")
-      .then((response) => response.json())
-      .then((data) => setFights(data))
-      .catch((error) => console.error("Error fetching fights data:", error));
+    // fetch("http://localhost:8000/fights")
+    //   .then((response) => response.json())
+    //   .then((data) => setFights(data))
+    //   .catch((error) => console.error("Error fetching fights data:", error));
 
-    fetch("http://localhost:8000/fighters")
+    fetch("http://localhost:8000/fighters/" + user.user_id)
       .then((response) => response.json())
       .then((data) => setFighters(data))
       .catch((error) => console.error("Error fetching fighter data:", error));
+    console.log();
+
+    fetch("http://localhost:8000/fights")
+      .then((response) => response.json())
+      .then((data) => setFights(data))
+      .catch((error) => console.error("Error fetching fight data:", error))
   }, []);
 
   return (
     <div className="mt-3 mb-4 border-0" style={{ height: "100%", textShadow: "0px 4px 10px rgba(179, 147, 211, 0.8)"}}>
+
       <h2>Home</h2>
       <hr />
       <h3>Your Fighters</h3>
@@ -65,8 +73,7 @@ const Home = () => {
               key={fight.id}
               id={fight.id}
               name={fight.name}
-              text={fight.text}
-              link={fight.link}
+              text={"What more is there to say?"}
             />
           ))
         ) : (
@@ -80,4 +87,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomeVisitor;
