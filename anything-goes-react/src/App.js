@@ -1,5 +1,5 @@
 import "./styles.css";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.css";
@@ -19,8 +19,7 @@ import Fight from "./pages/Fight";
 import NoPage from "./pages/NoPage";
 
 import HomeVisitor from "./pages/HomeVisitor";
-import Logo from "./pages/logo";
-
+import Logo from "./pages/Logo";
 
 import PrivateRoute from "./utils/PrivateRoute";
 

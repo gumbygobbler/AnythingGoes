@@ -18,107 +18,181 @@ function InputBox() {
 
   let { user } = useContext(AuthContext);
 
-  function GenerateFight() {
-    //GET fighters and check length of the array
-    //If 0, then do nothing and send to page saying there's no other fighters
-    //Else, get a random id from the length of fighters and POST a fight with both IDs
-    //Return to home after this
-    console.log("Fight Generating");
+  async function UpdateFighters() {
+    console.log("Updating Fighters");
 
-    //Fetch the fights data
-    //Fight ID 5 is our IDLE Fight
-    const response = fetch("http://localhost:8000/fighters/fights/" + 5)
-      .then((response) => response.json())
-      .then((data) => setFighterData(data))
-      .then(console.log("GET Fight Data: ", fighterData.length))
-      .then(() => {
-        if (fighterData.length < 2) {
-          console.log("Do nothing");
-          //Do nothing if there are not enough fighters
-          return;
-        } else {
-          try {
-            fetch(
-              //GET Current Fighter Data
-              "http://localhost:8000/fighters/current-fighter/" + user.user_id
-            )
-              .then((response) => response.json())
-              .then((data) => setCurrentFighter(data))
-              .then((response) => {
-                //GET Second Fighter Data
-                fetch(
-                  "http://localhost:8000/fighters/second-fighter/" +
-                    user.user_id
-                )
-                  .then((response) => response.json())
-                  .then((data) => setSecondFighter(data))
-                  .then(() => {
-                    //Create the new name for the fight
-                    const newFightName = `${currentFighter.name} Vs. ${secondFighter.name}`;
-                    const newFightData = new FormData();
-                    newFightData.append("name", newFightName);
-                    //POST a new fight
-                    fetch("http://localhost:8000/fights/new-fight/", {
-                      method: "POST",
-                      body: newFightData,
-                    })
-                      .then((response) => response.json())
-                      .then();
-                    //GET that new fight and get the id
-                    //PUT that new fight id into current fighter
-                    //PUU that new fight id into second fighter
-                  });
-              });
-          } catch (error) {
-            console.error("Error trying to select fighters");
-          }
-        }
-      })
-      .catch((error) => console.error("Error fetching fights data:", error));
+    //Update currentFighter with new fight id
+    const newCurrentFighterData = new FormData();
+    await newCurrentFighterData.append("id", currentFighter.id);
+    await newCurrentFighterData.append("name", currentFighter.name);
+    await newCurrentFighterData.append("manager", currentFighter.manager);
+    await newCurrentFighterData.append("fight", newFight.id);
+    await newCurrentFighterData.append("fighterImg", currentFighter.fighterImg);
+
+    //Update secondFighter with new fight id
+    const newSecondFighterData = new FormData();
+    await newSecondFighterData.append("id", secondFighter.id);
+    await newSecondFighterData.append("name", secondFighter.name);
+    await newSecondFighterData.append("manager", secondFighter.manager);
+    await newSecondFighterData.append("fight", newFight.id);
+    await newSecondFighterData.append("fighterImg", secondFighter.fighterImg);
+
+    for (const value of newCurrentFighterData.values()) {
+      console.log(value);
+    }
+
+    for (const value of newSecondFighterData.values()) {
+      console.log(value);
+    }
+
+    // currentFighter.fight = newFight.id;
+    // secondFighter.fight = newFight.id;
+
+    // console.log(currentFighter);
+    // console.log(secondFighter);
+
+    //PUT currentfighter with new fight id
+    const currentFighterResponse = await fetch(
+      "http://localhost:8000/fighters/update/" + currentFighter.id,
+      {
+        method: "PUT",
+        // headers: {
+        //   "Content-Type": "application/json",
+        // },
+        body: newCurrentFighterData,
+      }
+    );
+    const newCurrentFighter = await currentFighterResponse.json();
+    await setCurrentFighter(newCurrentFighter);
+    await console.log(currentFighter);
+
+    //PUT secondfighter with new fight id
+    const secondFighterResponse = await fetch(
+      "http://localhost:8000/fighters/update/" + secondFighter.id,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(secondFighter),
+      }
+    );
+    const newSecondFighter = await secondFighterResponse.json();
+    await setSecondFighter(newSecondFighter);
+    await console.log(secondFighter);
   }
 
-  const handleSubmit = (e) => {
+  async function GenerateFight() {
+    try {
+      console.log("Fight Generating");
+
+      // Fetch the fights data
+      const fightsResponse = await fetch(
+        "http://localhost:8000/fighters/fights/" + 5
+      );
+      const fightsData = await fightsResponse.json();
+      await setFighterData(fightsData);
+
+      console.log("GET Fight Data:", fighterData.length);
+
+      // Determine whether to just load fighter or generate fight
+      if (fighterData.length < 2) {
+        console.log("Do nothing");
+        // Do nothing if there are not enough fighters
+        return;
+      } else {
+        // GET Current Fighter Data
+        const currentFighterResponse = await fetch(
+          "http://localhost:8000/fighters/current-fighter/" + user.user_id
+        );
+        const currentFighterData = await currentFighterResponse.json();
+        await setCurrentFighter(currentFighterData);
+        console.log("Current Fighter:", currentFighter);
+
+        // GET Second Fighter Data
+        const secondFighterResponse = await fetch(
+          "http://localhost:8000/fighters/second-fighter/" + user.user_id
+        );
+        const secondFighterData = await secondFighterResponse.json();
+        await setSecondFighter(secondFighterData);
+        console.log("Second Fighter:", secondFighter);
+
+        // Function to create the fight given new details
+        await CreateNewFight();
+      }
+    } catch (error) {
+      console.error("Error in GenerateFight:", error);
+    }
+  }
+
+  const CreateNewFight = async () => {
+    console.log("Creating new fight.");
+    try {
+      // Create the new name for the fight
+      const newFightName = `${currentFighter.name} Vs. ${secondFighter.name}`;
+      console.log("New Fight Name:", newFightName);
+
+      const newFightData = new FormData();
+      await newFightData.append("name", newFightName);
+
+      // POST a new fight
+      const response = await fetch("http://localhost:8000/fights/new-fight/", {
+        method: "POST",
+        body: newFightData,
+      });
+
+      const newFightResponse = await response.json();
+      console.log("New Fight Response:", newFightResponse);
+    } catch (error) {
+      console.error("Error in CreateNewFight:", error);
+    }
+    await ReadNewFight();
+  };
+
+  const ReadNewFight = async () => {
+    console.log("Storing new fight data");
+    try {
+      // GET the newest fight and get the id
+      const response = await fetch("http://localhost:8000/fights/new-fight");
+      const newFightData = await response.json();
+      await setNewFight(newFightData);
+      console.log("New Fight Data:", newFightData);
+    } catch (error) {
+      console.error("Error in ReadNewFight:", error);
+    }
+    await UpdateFighters();
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // if (fighter || fighterImage === "") {
-    //   alert(
-    //     "Please enter both an image and a name for the fighter." +
-    //       fighter +
-    //       fighterImage
-    //   );
-    // } else {
 
     const newFighterData = new FormData();
-    newFighterData.append("name", fighter);
-    newFighterData.append("manager", user.userid);
-    newFighterData.append("fight", 5);
-    newFighterData.append("fighterImg", fighterImage);
-    console.log(fighter);
-    console.log(fighterImage);
+    await newFighterData.append("name", fighter);
+    await newFighterData.append("manager", user.userid);
+    await newFighterData.append("fight", 5);
+    await newFighterData.append("fighterImg", fighterImage);
 
     try {
-      fetch("http://localhost:8000/managers/" + user.user_id)
-        .then((response) => response.json())
-        .then((data) => {
-          newFighterData.append("manager", data.id);
-          try {
-            //POST new fighter data
-            const response = fetch(
-              "http://localhost:8000/fighters/" + user.user_id,
-              {
-                method: "POST",
-                body: newFighterData,
-              }
-            )
-              .then((response) => {
-                console.log(response);
-              })
-              .then(GenerateFight());
-          } catch (error) {
-            console.error("Error adding new fighter data:", error);
-          }
-        });
+      const managerResponse = await fetch(
+        "http://localhost:8000/managers/" + user.user_id
+      );
+      const managerData = await managerResponse.json();
+      await newFighterData.append("manager", managerData.id);
+
+      const fighterResponse = await fetch(
+        "http://localhost:8000/fighters/" + user.user_id,
+        {
+          method: "POST",
+          body: newFighterData,
+        }
+      );
+
+      const fighterData = await fighterResponse.json();
+      await console.log(fighterData);
+
+      await GenerateFight();
     } catch (error) {
-      console.error("Error searching for manager");
+      console.error("Error handling form submission:", error);
     }
   };
 
@@ -136,7 +210,7 @@ function InputBox() {
   // };
 
   function handleChange(e) {
-    console.log(user.use_id);
+    console.log(user.user_id);
     if (e.target.files[0] != null) setFighterImage(e.target.files[0]);
     fighterURL = URL.createObjectURL(e.target.files[0]);
   }
