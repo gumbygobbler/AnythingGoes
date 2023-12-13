@@ -6,43 +6,14 @@ import AuthContext from "../context/AuthContext";
 import "./pages.css";
 
 function Support() {
-  let { loginUser } = useContext(AuthContext);
-
-  const [values, setValues] = useState({
-    name: "",
-    password: "",
-  });
-
-  const [errors, setErrors] = useState({});
-
-  function handleChange(event) {
-    setValues({ ...values, [event.target.name]: event.target.value });
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    setErrors(Validation(values, 1));
-  }
-
-  useEffect(() => {
-    if (
-      Object.keys(errors).length === 0 &&
-      values.name !== "" &&
-      values.name !== ""
-    ) {
-      alert("form submitted"); //logic goes here for sending to db
-    }
-  }, [errors]);
-
-
   return (
     <div
-      // className="mt-5 d-flex justify-content-center"
+      
       style={{ height: "100vh" }}
     >
-      <form onSubmit={loginUser}>
+      <form>
         
-        <div className="container border border-white login-box d-flex flex-column justify-content-center mt-5 w-50 text-white ">
+        <div className="container border border-white login-box d-flex flex-column justify-content-center mt-5 w-75 text-white ">
           
             <div className=" d-flex flex-column justify-content-center">
             <br></br>
@@ -58,71 +29,68 @@ function Support() {
               }}
             >
               
-              Anything Goes Login
+              Anything Goes Support
             </label>
             <br />
+            
+            <label
+              style={{
+                color: "lightgray",
+                textAlign: "center",
+                fontSize: "28px",
+                justifyContent: "center",
+                fontWeight: "bold"
+                
+              }}
+            >
+              
+              If you need any help, please contact us using the form below.
+            </label>
             <br />
-            <br></br>
-            
+            <div>
             <input
-              className="bgfield"
+              className="supportfield"
               type="text"
-              placeholder="Enter Username"
-              name="username"
-              value={values.username}
-              onChange={handleChange}
-              width="100%"
+              placeholder="Name"
+              style={{width: "30%"}}
             ></input>
-            
-            {errors.name && <p style={{ color: "#ff3333" }}>{errors.name}</p>}
+            <div style={{
+              width: "10%",
+              display: "inline-block"
+            }}></div>
+            <input
+              className="supportfield"
+              type="email"
+              placeholder="E-mail"
+              style={{width: "60%"}}
+            ></input>
+            </div>
             
           </div>
           <div style={{height: "4px"}}></div>
           <div className=" d-flex flex-column justify-content-center" style={{justifyContent: "center", textAlign: "center"}}>
-            
-          
-            {/* <label
-              style={{
-                color: "rgb(200,200,200)",
-                textAlign: "center",
-                fontSize: "24px",
-              }}
-            >
-              Password
-            </label>
-             */}
-            <input
-              // className="login-entry"
-              className="bgfield"
-              type="password"
-              placeholder="Enter Password"
-              name="password"
-              value={values.password}
-              onChange={handleChange}
-              width="100%"
-              
-            ></input>
-            {errors.password && (
-              <p style={{ color: "#ff3333" }}>{errors.password}</p>
-            )}
+          <textarea
+              className="supportfield"
+              rows="5"
+              placeholder="Please enter the details here"
+              style={{width: "100%", resize: "none", rows: "10"}}
+            ></textarea>  
           </div>
           
           <div className="d-flex justify-content-center">
             <Button style={{padding: "15px", color: "#c9a7d5", fontWeight: "bold", fontSize: "20px"}}type="submit" variant="outline-light" className="my-3 w-100">
-              Login
+              Submit
             </Button>
           </div>
-          {/* //ButtonLink to="/home" classes="general-button"Login/ButtonLink */}
+
         
           <br>
           </br>
           <br />
 
           <span style={{textAlign: "center", color: "lightgray"}}>
-            Not a User? <a style={{color: "#c9a7d5"}} href="/Signup">Sign Up!</a></span>
-          
+            <a style={{color: "#c9a7d5"}} href="/Home">Return Home</a></span> 
         </div>
-        
       </form>
     </div>
     
@@ -130,4 +98,3 @@ function Support() {
 }
 
 export default Support;
-
